@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class Form1
+    partial class frmLogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -85,7 +85,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,8 +95,9 @@
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "frmLogIn";
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prisijungimas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
