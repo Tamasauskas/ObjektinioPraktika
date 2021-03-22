@@ -14,7 +14,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
     public partial class frmLogIn : Form
     {
         SqlConnection con = new SqlConnection();
-        
+        public int Id;
+
+        public int Admin { get; private set; }
+
         public frmLogIn()
         {
             InitializeComponent();
@@ -62,7 +65,11 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
-                MessageBox.Show("Sucess");
+                string CommandText = "Select Id from tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password = '" + txtPassword.Text + "'";
+                SqlCommand cmd = new SqlCommand(CommandText, con);
+                
+                Id = (int)cmd.ExecuteScalar();
+                MessageBox.Show(Convert.ToString(Id));
                 con.Close();
             }
             else
