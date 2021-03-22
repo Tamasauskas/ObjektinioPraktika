@@ -57,6 +57,7 @@
             this.btnLogOut.TabIndex = 1;
             this.btnLogOut.Text = "Atsijungti";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // txtLonInName
             // 

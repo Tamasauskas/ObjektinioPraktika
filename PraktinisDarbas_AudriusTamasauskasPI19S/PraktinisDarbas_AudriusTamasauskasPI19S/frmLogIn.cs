@@ -14,7 +14,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
     public partial class frmLogIn : Form
     {
         SqlConnection con = new SqlConnection();
-        SqlCommand com = new SqlCommand();
+        
         public frmLogIn()
         {
             InitializeComponent();
@@ -57,21 +57,22 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             con.Open();
-            com.Connection = con;
-            com.CommandText = "select * from tbl_Admin";
-            SqlDataReader dr = com.ExecuteReader();
-            if (dr.Read())
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From tbl_Admin where LogIn='"+txtLonInName.Text +"' and Password = '"+txtPassword.Text+"'",con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows[0][0].ToString() == "1")
             {
-                if (txtLonInName.Text.Equals(dr["Login"]) && txtPassword.Text.Equals(dr["Password"]))
-                {
-                    MessageBox.Show("Success");
-                }
-                else
-                {
-                    MessageBox.Show("Failed");
-                }
+                MessageBox.Show("Sucess");
+                con.Close();
             }
+            else
+                MessageBox.Show("Patikrinkite prisijungimo vardą ir/arba slaptažodį");
             con.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
