@@ -45,6 +45,7 @@
             this.btnLogIn.TabIndex = 0;
             this.btnLogIn.Text = "Prisijungti";
             this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // btnLogOut
             // 
