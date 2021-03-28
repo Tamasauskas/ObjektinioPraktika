@@ -7,23 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
     public partial class frmLogIn : Form
     {
-        SqlConnection con = new SqlConnection();
-        //for testing
-        public int Id { get; set; } 
-        Helper Helper = new Helper();
+        SQLiteConnection con = new SQLiteConnection();
+        clsHelper Helper = new clsHelper();
+        private int i = 0;
 
         public frmLogIn()
         {
             InitializeComponent();
-            con.ConnectionString = @"Data Source=.Praktinis darbas DB.db; Version=3;";
+            con.ConnectionString = clsHelper.ConnectionString;
             btnLogIn.FlatStyle = FlatStyle.Standard;
-            
+
 
         }
 
@@ -65,33 +64,75 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+           
             btnLogIn.FlatStyle = FlatStyle.Flat;
             con.Open();
-            Helper.Query = "Select Count(*) From tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password = '" + txtPassword.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(Helper.Query, con);
+            Helper.Query = "Select Count(*) From tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password='" + txtPassword.Text + "'";
+            SQLiteDataAdapter sda = new SQLiteDataAdapter(Helper.Query, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
-                Helper.Query = "Select Id from tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password = '" + txtPassword.Text + "'";
-                SqlCommand cmd = new SqlCommand(Helper.Query, con);
+                Helper.Query = "Select AdminId from tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password = '" + txtPassword.Text + "'";
+                SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
                 this.Hide();
                 frmAdminStudentas frmAdmin = new frmAdminStudentas();
                 frmAdmin.Show();
-                //Id = (int)cmd.ExecuteScalar();
-                //MessageBox.Show(Convert.ToString(Id));
-                //con.Close();
+                con.Close();
+                i = +1;
             }
-            else
+            Helper.Query = "Select Count(*) From tbl_Studentas where Vardas='" + txtLonInName.Text + "' and Pavarde='" + txtPassword.Text + "'";
+            SQLiteDataAdapter sda1 = new SQLiteDataAdapter(Helper.Query, con);
+            DataTable dt1 = new DataTable();
+            sda1.Fill(dt1);
+            if (dt1.Rows[0][0].ToString() == "1")
+            {
+                Helper.Query = "Select StudentoId From tbl_Studentas where Vardas='" + txtLonInName.Text + "' and Pavarde= '" + txtPassword.Text + "'";
+                SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+                clsStudentas Studentas = new clsStudentas();
+                Studentas.Vardas = txtLonInName.Text;
+                Studentas.Pavarde = txtPassword.Text;
+                Studentas.StudentoId = cmd.ExecuteScalar().ToString();
+                MessageBox.Show(Studentas.StudentoId);
+                this.Hide();
+                frmStudentas frmStudentas = new frmStudentas();
+                frmStudentas.Show();
+                con.Close();
+                i = +1;
+            }
+            Helper.Query = "Select Count(*) From tbl_Destytojas where Vardas='" + txtLonInName.Text + "' and Pavarde='" + txtPassword.Text + "'";
+            SQLiteDataAdapter sda2 = new SQLiteDataAdapter(Helper.Query, con);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            if (dt2.Rows[0][0].ToString() == "1")
+            {
+                Helper.Query = "Select DestytojoId From tbl_Destytojas where Vardas='" + txtLonInName.Text + "' and Pavarde= '" + txtPassword.Text + "'";
+                SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+                clsDestytojas Destytojas = new clsDestytojas();
+                Destytojas.Vardas = txtLonInName.Text;
+                Destytojas.Pavarde = txtPassword.Text;
+                Destytojas.DestytojoId = cmd.ExecuteScalar().ToString();
+                MessageBox.Show(Destytojas.DestytojoId);
+                this.Hide();
+                frmDestytojas frmDestytojas = new frmDestytojas();
+                frmDestytojas.Show();
+                con.Close();
+                i = +1;
+            }
+            if (i==0)
+            {
                 MessageBox.Show("Patikrinkite prisijungimo vardą ir/arba slaptažodį");
-            txtPassword.Text = "Slaptažodis";
-            txtPassword.ForeColor = Color.LightGray;
-            con.Close();
+                txtPassword.Text = "Slaptažodis";
+                txtPassword.ForeColor = Color.LightGray;
+                con.Close();
+            }
+ 
         }
-
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+      
     }
 }

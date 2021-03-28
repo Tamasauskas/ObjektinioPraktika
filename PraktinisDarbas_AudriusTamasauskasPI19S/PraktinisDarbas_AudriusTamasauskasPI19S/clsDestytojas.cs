@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class Helper
+    class clsDestytojas: clsStudentas
     {
-        public string Query { get; set; }
+        public string DestytojoId { get; set; }
     }
 }
