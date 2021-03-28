@@ -12,9 +12,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
     public partial class frmDestytojas : Form
     {
-        public frmDestytojas()
+        public frmDestytojas(string Dst_vardas, string Dst_Pavarde, string Dst_Id)
         {
             InitializeComponent();
+            Text = Dst_vardas + " " + Dst_Pavarde;
         }
 
         private void btn_Atsijungti_Click(object sender, EventArgs e)

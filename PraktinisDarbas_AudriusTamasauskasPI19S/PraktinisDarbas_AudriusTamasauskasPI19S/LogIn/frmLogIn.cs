@@ -23,7 +23,6 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.ConnectionString = clsHelper.ConnectionString;
             btnLogIn.FlatStyle = FlatStyle.Standard;
 
-
         }
 
         private void txtUserEnter(object sender, EventArgs e)
@@ -93,9 +92,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 Studentas.Vardas = txtLonInName.Text;
                 Studentas.Pavarde = txtPassword.Text;
                 Studentas.StudentoId = cmd.ExecuteScalar().ToString();
-                MessageBox.Show(Studentas.StudentoId);
+                //MessageBox.Show(Studentas.StudentoId);
                 this.Hide();
-                frmStudentas frmStudentas = new frmStudentas();
+                frmStudentas frmStudentas = new frmStudentas(Studentas.Vardas, Studentas.Pavarde, Studentas.StudentoId);
                 frmStudentas.Show();
                 con.Close();
                 i = +1;
@@ -112,9 +111,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 Destytojas.Vardas = txtLonInName.Text;
                 Destytojas.Pavarde = txtPassword.Text;
                 Destytojas.DestytojoId = cmd.ExecuteScalar().ToString();
-                MessageBox.Show(Destytojas.DestytojoId);
+                //MessageBox.Show(Destytojas.DestytojoId);
                 this.Hide();
-                frmDestytojas frmDestytojas = new frmDestytojas();
+                frmDestytojas frmDestytojas = new frmDestytojas(Destytojas.Vardas, Destytojas.Pavarde, Destytojas.DestytojoId);
                 frmDestytojas.Show();
                 con.Close();
                 i = +1;
