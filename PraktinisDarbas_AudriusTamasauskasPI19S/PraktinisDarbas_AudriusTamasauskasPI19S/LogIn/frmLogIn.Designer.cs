@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.txtLonInName = new System.Windows.Forms.TextBox();
@@ -38,6 +39,11 @@
             // 
             // btnLogIn
             // 
+            this.btnLogIn.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnLogIn.FlatAppearance.BorderSize = 2;
+            this.btnLogIn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnLogIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogIn.Location = new System.Drawing.Point(113, 142);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogIn.Name = "btnLogIn";
@@ -62,12 +68,12 @@
             // txtLonInName
             // 
             this.txtLonInName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLonInName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtLonInName.Location = new System.Drawing.Point(85, 28);
+            this.txtLonInName.ForeColor = System.Drawing.Color.LightGray;
+            this.txtLonInName.Location = new System.Drawing.Point(46, 28);
             this.txtLonInName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLonInName.Multiline = true;
             this.txtLonInName.Name = "txtLonInName";
-            this.txtLonInName.Size = new System.Drawing.Size(195, 36);
+            this.txtLonInName.Size = new System.Drawing.Size(279, 36);
             this.txtLonInName.TabIndex = 2;
             this.txtLonInName.Text = "Prisijungimo vardas";
             this.txtLonInName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -77,14 +83,14 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPassword.Location = new System.Drawing.Point(85, 85);
+            this.txtPassword.ForeColor = System.Drawing.Color.LightGray;
+            this.txtPassword.Location = new System.Drawing.Point(46, 85);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPassword.Size = new System.Drawing.Size(195, 36);
+            this.txtPassword.Size = new System.Drawing.Size(279, 36);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "Slaptažodis";
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -117,6 +123,7 @@
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLogIn";
             this.RightToLeftLayout = true;

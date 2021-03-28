@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace PraktinisDarbas_AudriusTamasauskasPI19S {
+namespace PraktinisDarbas_AudriusTamasauskasPI19S.Data {
     
     
     /// <summary>
@@ -641,7 +641,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S {
         }
     }
 }
-namespace PraktinisDarbas_AudriusTamasauskasPI19S._Objektinis_ProgramavimasDataSetTableAdapters {
+namespace PraktinisDarbas_AudriusTamasauskasPI19S.Data._Objektinis_ProgramavimasDataSetTableAdapters {
     
     
     /// <summary>
