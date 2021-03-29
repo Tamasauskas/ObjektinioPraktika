@@ -84,6 +84,7 @@
             this.btnAtnaujinti.TabIndex = 15;
             this.btnAtnaujinti.Text = "Atnaujinti";
             this.btnAtnaujinti.UseVisualStyleBackColor = true;
+            this.btnAtnaujinti.Click += new System.EventHandler(this.btnAtnaujinti_Click);
             // 
             // label1
             // 
@@ -225,8 +226,9 @@
             this.DestytojasDataGridView.ReadOnly = true;
             this.DestytojasDataGridView.RowTemplate.Height = 24;
             this.DestytojasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DestytojasDataGridView.Size = new System.Drawing.Size(482, 434);
+            this.DestytojasDataGridView.Size = new System.Drawing.Size(648, 434);
             this.DestytojasDataGridView.TabIndex = 9;
+            this.DestytojasDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DestytojasDataGridView_CellContentClick);
             // 
             // groupBox1
             // 
@@ -244,7 +246,7 @@
             this.groupBox1.Controls.Add(this.DestytojasDataGridView);
             this.groupBox1.Location = new System.Drawing.Point(211, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 461);
+            this.groupBox1.Size = new System.Drawing.Size(885, 461);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Studentas";
@@ -270,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 532);
+            this.ClientSize = new System.Drawing.Size(1108, 532);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_Atsijungti);
             this.Controls.Add(this.groupBox1);

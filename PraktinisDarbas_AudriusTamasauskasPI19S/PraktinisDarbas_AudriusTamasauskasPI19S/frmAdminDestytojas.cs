@@ -14,7 +14,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
     {
         SQLiteConnection con = new SQLiteConnection();
         clsHelper Helper = new clsHelper();
-        clsStudentas Studentas = new clsStudentas();
+        clsDalykas Dalykas = new clsDalykas();
         clsDestytojas Destytojas = new clsDestytojas();
 
         public frmAdminDestytojas()
@@ -89,7 +89,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private DataTable FillDatagrid()
         {
             DataTable dt = new DataTable();
-            Helper.Query = "SELECT tbl_Dalykas.DalykoId, tbl_Dalykas.DestytojoId, tbl_Destytojas.Vardas, tbl_Destytojas.Pavarde, tbl_Dalykas.DalykoPavadinimasId, tbl_Grupe.GrupesId, tbl_DalykoPavadinimas.DalykoPavadinimasId from (((tbl_Dalykas INNER JOIN tbl_Destytojas ON tbl_Dalykas.DestytojoId = tbl_Destytojas.DestytojoId) INNER JOIN tbl_Grupe ON tbl_Dalykas.GrupesId = tbl_Grupe.GrupesId) INNER JOIN tbl_DalykoPavadinimas ON tbl_Dalykas.DalykoPavadinimasId = tbl_DalykoPavadinimas.DalykoPavadinimasId); ";
+            Helper.Query = "SELECT tbl_Dalykas.DalykoId, tbl_Dalykas.DestytojoId, tbl_Destytojas.Vardas, tbl_Destytojas.Pavarde, tbl_Grupe.GrupesId As 'Grupe', tbl_DalykoPavadinimas.DalykoPavadinimasId As 'Dalyko Pavadinimas' from (((tbl_Dalykas INNER JOIN tbl_Destytojas ON tbl_Dalykas.DestytojoId = tbl_Destytojas.DestytojoId) INNER JOIN tbl_Grupe ON tbl_Dalykas.GrupesId = tbl_Grupe.GrupesId) INNER JOIN tbl_DalykoPavadinimas ON tbl_Dalykas.DalykoPavadinimasId = tbl_DalykoPavadinimas.DalykoPavadinimasId); ";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
             try
             {
@@ -115,8 +115,6 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
         private void PridetiDestytoja()
         {
-           
-           
                 Helper.Query = "Insert Into tbl_Destytojas (Vardas, Pavarde) values ('" + txtDestytojoVardas.Text + "', '" + txtDestytojoPavarde.Text + "');";
                 SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
                 SQLiteDataReader myReader;
@@ -124,35 +122,95 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 {
                     con.Open();
                     myReader = cmd.ExecuteReader();
-                    MessageBox.Show("Išaugota sėkmingai");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Klaida" + ex.Message);
                 }
                 con.Close();
-                DestytojasDataGridView.DataSource = FillDatagrid();
-            
-            
+                DestytojasDataGridView.DataSource = FillDatagrid();  
         }
         private void RastiDestytojoId()
         {
-         
                 con.Open();
                 Helper.Query = "Select DestytojoId From tbl_Destytojas where Vardas='" + txtDestytojoVardas.Text + "' and Pavarde= '" + txtDestytojoPavarde.Text + "'";
                 SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
-                //clsDestytojas Destytojas = new clsDestytojas();
                 Destytojas.DestytojoId = cmd.ExecuteScalar().ToString();
-                MessageBox.Show(Destytojas.DestytojoId);
                 con.Close();
-            
-            
         }
 
         private void IterptiDestomusDalykus()
         {
-            
             Helper.Query = "Insert Into tbl_Dalykas (DestytojoId, GrupesId, DalykoPavadinimasId) values ('" + Destytojas.DestytojoId + "', '" + ComboGrupe.Text + "','" + ComboDalykas.Text + "');";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+                MessageBox.Show("Išaugota sėkmingai");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida- negali viena grupe mokytis vienodu dalykų.");
+            }
+            con.Close();
+            DestytojasDataGridView.DataSource = FillDatagrid();
+        }
+        private void PatikrintiArjauYraToksDestytojas()
+        {
+            con.Open();
+            Helper.Query = "Select Count(*) From tbl_Destytojas where Vardas='" + txtDestytojoVardas.Text + "' and Pavarde='" + txtDestytojoPavarde.Text + "'";
+            SQLiteDataAdapter sda2 = new SQLiteDataAdapter(Helper.Query, con);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            if (dt2.Rows[0][0].ToString() == "0")
+            {
+                con.Close();
+                PridetiDestytoja();
+            }
+            else
+            {
+                con.Close();
+            }
+
+        }
+
+        private void btnPridėti_Click(object sender, EventArgs e)
+        {
+            if (txtDestytojoVardas.Text == "" || txtDestytojoPavarde.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text == "")
+            {
+                MessageBox.Show("Užpildykite visus laukus");
+            }
+            else
+            {
+                PatikrintiArjauYraToksDestytojas();
+                RastiDestytojoId();
+                IterptiDestomusDalykus();
+            }
+            
+        }
+
+        private void DestytojasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.DestytojasDataGridView.Rows[e.RowIndex];
+                txtDestytojoPavarde.Text = row.Cells["Pavarde"].Value.ToString();
+                txtDestytojoVardas.Text = row.Cells["Vardas"].Value.ToString();
+                ComboGrupe.Text = row.Cells["Grupe"].Value.ToString();
+                ComboDalykas.Text = row.Cells["Dalyko Pavadinimas"].Value.ToString();
+                Dalykas.DalykoId = row.Cells["DalykoId"].Value.ToString();
+                Dalykas.DestytojoId = row.Cells["DestytojoId"].Value.ToString();
+                
+            }
+        }
+        private void DestytojasUpdate()
+        {
+            Destytojas.Vardas = txtDestytojoVardas.Text;
+            Destytojas.Pavarde = txtDestytojoVardas.Text;
+            Destytojas.DestytojoId = Dalykas.DestytojoId;
+            Helper.Query = "Update tbl_Destytojas Set Vardas = '" + Destytojas.Vardas + "', Pavarde= '" + Destytojas.Pavarde + "' Where DestytojoId='" + Destytojas.DestytojoId + "'";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
             SQLiteDataReader myReader;
             try
@@ -168,20 +226,17 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             DestytojasDataGridView.DataSource = FillDatagrid();
         }
-
-        private void btnPridėti_Click(object sender, EventArgs e)
+        private void btnAtnaujinti_Click(object sender, EventArgs e)
         {
-            if (txtDestytojoVardas.Text == "" || txtDestytojoPavarde.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text == "")
+            if (txtDestytojoPavarde.Text == "" || txtDestytojoVardas.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text=="" || Dalykas.DalykoId=="")
             {
-                MessageBox.Show("Užpildykite visus laukus");
+                MessageBox.Show("Nepasirinktas įrašas.");
             }
             else
             {
-                PridetiDestytoja();
-                RastiDestytojoId();
-                IterptiDestomusDalykus();
+               
             }
-            
+
         }
     }
 }
