@@ -54,40 +54,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsDalykas.cs" />
-    <Compile Include="frmAdminDestytojas.cs">
+    <Compile Include="Classes\clsDalykas.cs" />
+    <Compile Include="Classes\clsDalykoPavadinimas.cs" />
+    <Compile Include="Classes\clsGrupe.cs" />
+    <Compile Include="Forms\frmAdminDestytojas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdminDestytojas.Designer.cs">
+    <Compile Include="Forms\frmAdminDestytojas.Designer.cs">
       <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\frmAdminStudentas.cs">
+    <Compile Include="Forms\frmAdminStudentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\frmAdminStudentas.Designer.cs">
+    <Compile Include="Forms\frmAdminStudentas.Designer.cs">
       <DependentUpon>frmAdminStudentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="clsDestytojas.cs" />
-    <Compile Include="clsStudentas.cs" />
-    <Compile Include="frmDestytojas.cs">
+    <Compile Include="Classes\clsDestytojas.cs" />
+    <Compile Include="Classes\clsStudentas.cs" />
+    <Compile Include="Forms\frmDestytojas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDestytojas.Designer.cs">
+    <Compile Include="Forms\frmDestytojas.Designer.cs">
       <DependentUpon>frmDestytojas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentas.cs">
+    <Compile Include="Forms\frmStudentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudentas.Designer.cs">
+    <Compile Include="Forms\frmStudentas.Designer.cs">
       <DependentUpon>frmStudentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogIn\frmLogIn.cs">
+    <Compile Include="Forms\frmLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogIn\frmLogIn.Designer.cs">
+    <Compile Include="Forms\frmLogIn.Designer.cs">
       <DependentUpon>frmLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogIn\clsHelper.cs" />
+    <Compile Include="Classes\clsHelper.cs" />
+    <Compile Include="Forms\GrupesDalykai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GrupesDalykai.Designer.cs">
+      <DependentUpon>GrupesDalykai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\_Objektinis_ProgramavimasDataSet.Designer.cs">
@@ -95,20 +103,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Objektinis_ProgramavimasDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAdminDestytojas.resx">
+    <EmbeddedResource Include="Forms\frmAdminDestytojas.resx">
       <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\frmAdminStudentas.resx">
+    <EmbeddedResource Include="Forms\frmAdminStudentas.resx">
       <DependentUpon>frmAdminStudentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDestytojas.resx">
+    <EmbeddedResource Include="Forms\frmDestytojas.resx">
       <DependentUpon>frmDestytojas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudentas.resx">
+    <EmbeddedResource Include="Forms\frmStudentas.resx">
       <DependentUpon>frmStudentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogIn\frmLogIn.resx">
+    <EmbeddedResource Include="Forms\frmLogIn.resx">
       <DependentUpon>frmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GrupesDalykai.resx">
+      <DependentUpon>GrupesDalykai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,10 +131,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="Praktinis darbas DB.db">
+    <Content Include="Data\Praktinis darbas DB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="packages.config" />
+    <None Include="Main\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,6 +164,7 @@
   <ItemGroup>
     <None Include="Resources\explosion-pink-blue-powder-freeze-260nw-1077184466.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

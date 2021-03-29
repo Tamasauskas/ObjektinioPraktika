@@ -44,8 +44,7 @@
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnGrupe = new System.Windows.Forms.Button();
-            this.btnDalykai = new System.Windows.Forms.Button();
+            this.BtnGrupsDalykai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentasDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -209,8 +208,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnDalykai);
-            this.groupBox3.Controls.Add(this.BtnGrupe);
+            this.groupBox3.Controls.Add(this.BtnGrupsDalykai);
             this.groupBox3.Controls.Add(this.btnStudentas);
             this.groupBox3.Controls.Add(this.btnDestytojas);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
@@ -220,35 +218,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
             // 
-            // BtnGrupe
+            // BtnGrupsDalykai
             // 
-            this.BtnGrupe.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.BtnGrupe.FlatAppearance.BorderSize = 2;
-            this.BtnGrupe.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.BtnGrupe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnGrupe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGrupe.Location = new System.Drawing.Point(6, 147);
-            this.BtnGrupe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnGrupe.Name = "BtnGrupe";
-            this.BtnGrupe.Size = new System.Drawing.Size(139, 54);
-            this.BtnGrupe.TabIndex = 4;
-            this.BtnGrupe.Text = "Grupes";
-            this.BtnGrupe.UseVisualStyleBackColor = true;
-            // 
-            // btnDalykai
-            // 
-            this.btnDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnDalykai.FlatAppearance.BorderSize = 2;
-            this.btnDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDalykai.Location = new System.Drawing.Point(6, 205);
-            this.btnDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDalykai.Name = "btnDalykai";
-            this.btnDalykai.Size = new System.Drawing.Size(139, 54);
-            this.btnDalykai.TabIndex = 5;
-            this.btnDalykai.Text = "Dalykai";
-            this.btnDalykai.UseVisualStyleBackColor = true;
+            this.BtnGrupsDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.BtnGrupsDalykai.FlatAppearance.BorderSize = 2;
+            this.BtnGrupsDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtnGrupsDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnGrupsDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGrupsDalykai.Location = new System.Drawing.Point(6, 147);
+            this.BtnGrupsDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnGrupsDalykai.Name = "BtnGrupsDalykai";
+            this.BtnGrupsDalykai.Size = new System.Drawing.Size(139, 54);
+            this.BtnGrupsDalykai.TabIndex = 4;
+            this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
+            this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
+            this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
             // 
             // frmAdminStudentas
             // 
@@ -290,7 +274,6 @@
         private System.Windows.Forms.ComboBox ComboGrupe;
         private System.Windows.Forms.Button btnNaikinti;
         private System.Windows.Forms.Button btnAtnaujinti;
-        private System.Windows.Forms.Button btnDalykai;
-        private System.Windows.Forms.Button BtnGrupe;
+        private System.Windows.Forms.Button BtnGrupsDalykai;
     }
 }

@@ -31,7 +31,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
         private void btnStudentas_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
             frmAdminStudentas.Show();
         }
@@ -63,6 +63,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
+
         private void FillComboGrupe()
         {
 
@@ -128,8 +129,8 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                     MessageBox.Show("Klaida" + ex.Message);
                 }
                 con.Close();
-                DestytojasDataGridView.DataSource = FillDatagrid();  
         }
+
         private void RastiDestytojoId()
         {
                 con.Open();
@@ -150,13 +151,14 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 myReader = cmd.ExecuteReader();
                 MessageBox.Show("Išaugota sėkmingai");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Klaida- negali viena grupe mokytis vienodu dalykų.");
             }
             con.Close();
-            DestytojasDataGridView.DataSource = FillDatagrid();
+            
         }
+
         private void PatikrintiArjauYraToksDestytojas()
         {
             con.Open();
@@ -187,6 +189,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 PatikrintiArjauYraToksDestytojas();
                 RastiDestytojoId();
                 IterptiDestomusDalykus();
+                DestytojasDataGridView.DataSource = FillDatagrid();
             }
             
         }
@@ -202,14 +205,15 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 ComboDalykas.Text = row.Cells["Dalyko Pavadinimas"].Value.ToString();
                 Dalykas.DalykoId = row.Cells["DalykoId"].Value.ToString();
                 Dalykas.DestytojoId = row.Cells["DestytojoId"].Value.ToString();
-                
+                //MessageBox.Show("Dalykas: " + Dalykas.DalykoId + "Destytojas " + Dalykas.DestytojoId);
             }
         }
+
         private void DestytojasUpdate()
         {
             Destytojas.Vardas = txtDestytojoVardas.Text;
-            Destytojas.Pavarde = txtDestytojoVardas.Text;
-            Destytojas.DestytojoId = Dalykas.DestytojoId;
+            Destytojas.Pavarde = txtDestytojoPavarde.Text;
+            Destytojas.DestytojoId = Destytojas.DestytojoId;
             Helper.Query = "Update tbl_Destytojas Set Vardas = '" + Destytojas.Vardas + "', Pavarde= '" + Destytojas.Pavarde + "' Where DestytojoId='" + Destytojas.DestytojoId + "'";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
             SQLiteDataReader myReader;
@@ -221,22 +225,125 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Klaida" + ex.Message);
+                MessageBox.Show("Klaida destytojo atnaujinime: " + ex.Message);
             }
             con.Close();
-            DestytojasDataGridView.DataSource = FillDatagrid();
+            
         }
+
+        private void DalykasUpdate()
+        {
+           
+            Helper.Query = "Update tbl_Dalykas Set DestytojoId= '" + Destytojas.DestytojoId + "', GrupesId= '" + ComboGrupe.Text + "', DalykoPavadinimasId= '" + ComboDalykas.Text + "' Where DalykoId='" + Dalykas.DalykoId + "'";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida dalyko atnaujinime: " + ex.Message);
+            }
+            con.Close();
+
+        }
+
         private void btnAtnaujinti_Click(object sender, EventArgs e)
         {
             if (txtDestytojoPavarde.Text == "" || txtDestytojoVardas.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text=="" || Dalykas.DalykoId=="")
             {
                 MessageBox.Show("Nepasirinktas įrašas.");
             }
-            else
+            else 
             {
-               
+                PatikrintiArjauYraToksDestytojas();
+                RastiDestytojoId();
+                DestytojasUpdate();
+                DalykasUpdate();
+                DestytojasDataGridView.DataSource = FillDatagrid();
             }
 
+        }
+
+        private void TrintiDestytoja()
+        {
+            if (txtDestytojoVardas.Text == "" || txtDestytojoPavarde.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text =="")
+            {
+                MessageBox.Show("Nepasirinktas įrašas.");
+            }
+            else
+            {
+                Helper.Query = "Delete From tbl_Destytojas Where DestytojoId='" + Dalykas.DestytojoId + "'";
+                SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+                SQLiteDataReader myReader;
+                try
+                {
+                    con.Open();
+                    myReader = cmd.ExecuteReader();
+                    MessageBox.Show("Ištrinta sėkmingai");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Klaida" + ex.Message);
+                }
+                con.Close();
+            }
+        }
+
+        private void TrintiDalyka()
+        {
+            Helper.Query = "Delete From tbl_Dalykas Where DalykoId='" + Dalykas.DalykoId + "'";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+                MessageBox.Show("Ištrinta sėkmingai");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida" + ex.Message);
+            }
+            con.Close();
+        }
+
+        private void TikrintiArPaskutinisDestytojoIrasas()
+        {
+            con.Open();
+            Helper.Query = "Select Count (DestytojoId) FROM tbl_Dalykas WHERE DestytojoId = '" + Dalykas.DestytojoId +" ';";
+            SQLiteDataAdapter sda2 = new SQLiteDataAdapter(Helper.Query, con);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            if (dt2.Rows[0][0].ToString() == "1")
+            {
+                con.Close();
+                TrintiDalyka();
+                TrintiDestytoja();
+                //MessageBox.Show("Yra tik vienas destytojas" );
+            }
+            else
+            {
+                con.Close();
+                TrintiDalyka();
+                //MessageBox.Show("Yra daugiau uz viena destytoja");
+
+            }
+        }
+
+        private void btnNaikinti_Click(object sender, EventArgs e)
+        {
+            TikrintiArPaskutinisDestytojoIrasas();
+            DestytojasDataGridView.DataSource = FillDatagrid();
+        }
+
+        private void BtnGrupesDalykai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            frmGrupesDalykai.Show();
         }
     }
 }

@@ -145,5 +145,12 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            frmGrupesDalykai.Show();
+        }
     }
 }

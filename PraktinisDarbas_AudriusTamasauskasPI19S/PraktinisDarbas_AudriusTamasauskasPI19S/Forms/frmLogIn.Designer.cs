@@ -37,6 +37,7 @@
             this.btnStudentoIvedimas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDestytojas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -118,16 +119,17 @@
             // 
             // btnStudentoIvedimas
             // 
-            this.btnStudentoIvedimas.Location = new System.Drawing.Point(6, 21);
+            this.btnStudentoIvedimas.Location = new System.Drawing.Point(6, 30);
             this.btnStudentoIvedimas.Name = "btnStudentoIvedimas";
-            this.btnStudentoIvedimas.Size = new System.Drawing.Size(123, 36);
+            this.btnStudentoIvedimas.Size = new System.Drawing.Size(161, 36);
             this.btnStudentoIvedimas.TabIndex = 5;
-            this.btnStudentoIvedimas.Text = "Studento ";
+            this.btnStudentoIvedimas.Text = "AdminStudentai";
             this.btnStudentoIvedimas.UseVisualStyleBackColor = true;
             this.btnStudentoIvedimas.Click += new System.EventHandler(this.btnStudentoIvedimas_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnDestytojas);
             this.groupBox1.Controls.Add(this.btnStudentoIvedimas);
             this.groupBox1.Location = new System.Drawing.Point(390, 28);
@@ -139,13 +141,23 @@
             // 
             // btnDestytojas
             // 
-            this.btnDestytojas.Location = new System.Drawing.Point(135, 21);
+            this.btnDestytojas.Location = new System.Drawing.Point(6, 72);
             this.btnDestytojas.Name = "btnDestytojas";
-            this.btnDestytojas.Size = new System.Drawing.Size(123, 36);
+            this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
             this.btnDestytojas.TabIndex = 6;
-            this.btnDestytojas.Text = "Destytojo";
+            this.btnDestytojas.Text = "AdminDestytojai";
             this.btnDestytojas.UseVisualStyleBackColor = true;
             this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 36);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "AdminDalykaiGrupes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmLogIn
             // 
@@ -182,6 +194,7 @@
         private System.Windows.Forms.Button btnStudentoIvedimas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDestytojas;
+        private System.Windows.Forms.Button button1;
     }
 }
 

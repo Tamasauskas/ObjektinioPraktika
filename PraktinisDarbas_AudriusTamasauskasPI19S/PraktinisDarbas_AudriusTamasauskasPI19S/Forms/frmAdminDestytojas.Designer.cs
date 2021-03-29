@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDalykai = new System.Windows.Forms.Button();
             this.btnNaikinti = new System.Windows.Forms.Button();
             this.btnAtnaujinti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDestytojoVardas = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnGrupe = new System.Windows.Forms.Button();
+            this.BtnGrupesDalykai = new System.Windows.Forms.Button();
             this.btnStudentas = new System.Windows.Forms.Button();
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
@@ -52,21 +51,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnDalykai
-            // 
-            this.btnDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnDalykai.FlatAppearance.BorderSize = 2;
-            this.btnDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDalykai.Location = new System.Drawing.Point(6, 205);
-            this.btnDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDalykai.Name = "btnDalykai";
-            this.btnDalykai.Size = new System.Drawing.Size(139, 54);
-            this.btnDalykai.TabIndex = 5;
-            this.btnDalykai.Text = "Dalykai";
-            this.btnDalykai.UseVisualStyleBackColor = true;
-            // 
             // btnNaikinti
             // 
             this.btnNaikinti.Location = new System.Drawing.Point(12, 354);
@@ -75,6 +59,7 @@
             this.btnNaikinti.TabIndex = 16;
             this.btnNaikinti.Text = "Naikinti";
             this.btnNaikinti.UseVisualStyleBackColor = true;
+            this.btnNaikinti.Click += new System.EventHandler(this.btnNaikinti_Click);
             // 
             // btnAtnaujinti
             // 
@@ -128,8 +113,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnDalykai);
-            this.groupBox3.Controls.Add(this.BtnGrupe);
+            this.groupBox3.Controls.Add(this.BtnGrupesDalykai);
             this.groupBox3.Controls.Add(this.btnStudentas);
             this.groupBox3.Controls.Add(this.btnDestytojas);
             this.groupBox3.Location = new System.Drawing.Point(22, 6);
@@ -139,20 +123,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
             // 
-            // BtnGrupe
+            // BtnGrupesDalykai
             // 
-            this.BtnGrupe.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.BtnGrupe.FlatAppearance.BorderSize = 2;
-            this.BtnGrupe.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.BtnGrupe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnGrupe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGrupe.Location = new System.Drawing.Point(6, 147);
-            this.BtnGrupe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnGrupe.Name = "BtnGrupe";
-            this.BtnGrupe.Size = new System.Drawing.Size(139, 54);
-            this.BtnGrupe.TabIndex = 4;
-            this.BtnGrupe.Text = "Grupes";
-            this.BtnGrupe.UseVisualStyleBackColor = true;
+            this.BtnGrupesDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.BtnGrupesDalykai.FlatAppearance.BorderSize = 2;
+            this.BtnGrupesDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtnGrupesDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnGrupesDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGrupesDalykai.Location = new System.Drawing.Point(6, 147);
+            this.BtnGrupesDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnGrupesDalykai.Name = "BtnGrupesDalykai";
+            this.BtnGrupesDalykai.Size = new System.Drawing.Size(139, 54);
+            this.BtnGrupesDalykai.TabIndex = 4;
+            this.BtnGrupesDalykai.Text = "Grupes/Dalykai";
+            this.BtnGrupesDalykai.UseVisualStyleBackColor = true;
+            this.BtnGrupesDalykai.Click += new System.EventHandler(this.BtnGrupesDalykai_Click);
             // 
             // btnStudentas
             // 
@@ -288,8 +273,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnDalykai;
         private System.Windows.Forms.Button btnNaikinti;
         private System.Windows.Forms.Button btnAtnaujinti;
         private System.Windows.Forms.Label label1;
@@ -298,7 +281,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDestytojoVardas;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button BtnGrupe;
+        private System.Windows.Forms.Button BtnGrupesDalykai;
         private System.Windows.Forms.Button btnStudentas;
         private System.Windows.Forms.Button btnDestytojas;
         private System.Windows.Forms.Button btn_Atsijungti;
