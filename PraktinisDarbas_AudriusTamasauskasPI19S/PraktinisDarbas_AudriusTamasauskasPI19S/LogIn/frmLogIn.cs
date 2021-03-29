@@ -45,7 +45,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
         private void txtPassEnter(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Equals("Slaptažodis"))
+            if (txtPassword.Text.Equals("Password"))
             {
                 txtPassword.Text = "";
                 txtPassword.ForeColor = Color.Black;
@@ -56,7 +56,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         {
             if (txtPassword.Text.Equals(""))
             {
-                txtPassword.Text = "Slaptažodis";
+                txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.LightGray;
             }
         }
@@ -132,6 +132,18 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             this.Close();
         }
 
-      
+        private void btnStudentoIvedimas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
+            frmAdminStudentas.Show();
+        }
+
+        private void btnDestytojas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
+            frmAdminDestytojas.Show();
+        }
     }
 }

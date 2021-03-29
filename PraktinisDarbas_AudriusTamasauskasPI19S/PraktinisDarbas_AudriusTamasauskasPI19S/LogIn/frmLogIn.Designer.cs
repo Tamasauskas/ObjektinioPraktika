@@ -34,7 +34,11 @@
             this.txtLonInName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnStudentoIvedimas = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDestytojas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogIn
@@ -107,16 +111,48 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(352, 320);
+            this.pictureBox1.Size = new System.Drawing.Size(696, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnStudentoIvedimas
+            // 
+            this.btnStudentoIvedimas.Location = new System.Drawing.Point(6, 21);
+            this.btnStudentoIvedimas.Name = "btnStudentoIvedimas";
+            this.btnStudentoIvedimas.Size = new System.Drawing.Size(123, 36);
+            this.btnStudentoIvedimas.TabIndex = 5;
+            this.btnStudentoIvedimas.Text = "Studento ";
+            this.btnStudentoIvedimas.UseVisualStyleBackColor = true;
+            this.btnStudentoIvedimas.Click += new System.EventHandler(this.btnStudentoIvedimas_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDestytojas);
+            this.groupBox1.Controls.Add(this.btnStudentoIvedimas);
+            this.groupBox1.Location = new System.Drawing.Point(390, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(294, 280);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Greita prieiga";
+            // 
+            // btnDestytojas
+            // 
+            this.btnDestytojas.Location = new System.Drawing.Point(135, 21);
+            this.btnDestytojas.Name = "btnDestytojas";
+            this.btnDestytojas.Size = new System.Drawing.Size(123, 36);
+            this.btnDestytojas.TabIndex = 6;
+            this.btnDestytojas.Text = "Destytojo";
+            this.btnDestytojas.UseVisualStyleBackColor = true;
+            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
             // 
             // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 320);
+            this.ClientSize = new System.Drawing.Size(696, 320);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLonInName);
             this.Controls.Add(this.btnLogOut);
@@ -130,6 +166,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prisijungimas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +179,9 @@
         private System.Windows.Forms.TextBox txtLonInName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnStudentoIvedimas;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnDestytojas;
     }
 }
 

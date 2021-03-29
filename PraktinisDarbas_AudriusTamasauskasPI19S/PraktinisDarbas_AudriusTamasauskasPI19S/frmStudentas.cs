@@ -12,12 +12,16 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
     public partial class frmStudentas : Form
     {
-        
+        clsStudentas Studentas = new clsStudentas();
+        clsHelper Helper = new clsHelper();
 
         public frmStudentas(string Std_vardas, string Std_Pavarde, string Std_Id)
         {
             InitializeComponent();
             Text = Std_vardas + Std_Pavarde;
+            Studentas.Vardas = Std_vardas;
+            Studentas.Pavarde = Std_Pavarde;
+            Studentas.StudentoId = Std_Id;
         }
 
      

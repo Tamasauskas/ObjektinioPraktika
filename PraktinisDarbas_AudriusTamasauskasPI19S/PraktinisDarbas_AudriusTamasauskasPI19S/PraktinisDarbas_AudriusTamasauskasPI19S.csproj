@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAdminDestytojas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminDestytojas.Designer.cs">
+      <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\frmAdminStudentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Objektinis_ProgramavimasDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAdminDestytojas.resx">
+      <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\frmAdminStudentas.resx">
       <DependentUpon>frmAdminStudentas.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,75 +30,176 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminStudentas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnLogIn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNaikinti = new System.Windows.Forms.Button();
+            this.btnAtnaujinti = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ComboGrupe = new System.Windows.Forms.ComboBox();
+            this.txtStudentoPavarde = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtStudentoVardas = new System.Windows.Forms.TextBox();
+            this.btnPridėti = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.StudentasDataGridView = new System.Windows.Forms.DataGridView();
+            this.btnStudentas = new System.Windows.Forms.Button();
+            this.btnDestytojas = new System.Windows.Forms.Button();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgwGrupe = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtGrupe = new System.Windows.Forms.TextBox();
-            this.btnPridetiGrupe = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
+            this.BtnGrupe = new System.Windows.Forms.Button();
+            this.btnDalykai = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentasDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwGrupe)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(835, 43);
+            this.groupBox1.Controls.Add(this.btnNaikinti);
+            this.groupBox1.Controls.Add(this.btnAtnaujinti);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.ComboGrupe);
+            this.groupBox1.Controls.Add(this.txtStudentoPavarde);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtStudentoVardas);
+            this.groupBox1.Controls.Add(this.btnPridėti);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.StudentasDataGridView);
+            this.groupBox1.Location = new System.Drawing.Point(201, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(583, 461);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Studentas";
             // 
-            // groupBox2
+            // btnNaikinti
             // 
-            this.groupBox2.Controls.Add(this.btnPridetiGrupe);
-            this.groupBox2.Controls.Add(this.dgwGrupe);
-            this.groupBox2.Controls.Add(this.txtGrupe);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(199, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(253, 461);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Grupė";
+            this.btnNaikinti.Location = new System.Drawing.Point(13, 296);
+            this.btnNaikinti.Name = "btnNaikinti";
+            this.btnNaikinti.Size = new System.Drawing.Size(125, 54);
+            this.btnNaikinti.TabIndex = 16;
+            this.btnNaikinti.Text = "Naikinti";
+            this.btnNaikinti.UseVisualStyleBackColor = true;
+            this.btnNaikinti.Click += new System.EventHandler(this.btnNaikinti_Click);
             // 
-            // btnLogIn
+            // btnAtnaujinti
             // 
-            this.btnLogIn.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnLogIn.FlatAppearance.BorderSize = 2;
-            this.btnLogIn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnLogIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogIn.Location = new System.Drawing.Point(6, 31);
-            this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(139, 54);
-            this.btnLogIn.TabIndex = 2;
-            this.btnLogIn.Text = "Studentas";
-            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnAtnaujinti.Location = new System.Drawing.Point(13, 236);
+            this.btnAtnaujinti.Name = "btnAtnaujinti";
+            this.btnAtnaujinti.Size = new System.Drawing.Size(125, 54);
+            this.btnAtnaujinti.TabIndex = 15;
+            this.btnAtnaujinti.Text = "Atnaujinti";
+            this.btnAtnaujinti.UseVisualStyleBackColor = true;
+            this.btnAtnaujinti.Click += new System.EventHandler(this.btnAtnaujinti_Click);
             // 
-            // button1
+            // label1
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(6, 89);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 54);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Dėstytojas";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Grupė";
+            // 
+            // ComboGrupe
+            // 
+            this.ComboGrupe.FormattingEnabled = true;
+            this.ComboGrupe.Location = new System.Drawing.Point(13, 146);
+            this.ComboGrupe.Name = "ComboGrupe";
+            this.ComboGrupe.Size = new System.Drawing.Size(194, 24);
+            this.ComboGrupe.TabIndex = 13;
+            this.ComboGrupe.SelectedIndexChanged += new System.EventHandler(this.ComboGrupe_SelectedIndexChanged);
+            // 
+            // txtStudentoPavarde
+            // 
+            this.txtStudentoPavarde.Location = new System.Drawing.Point(13, 99);
+            this.txtStudentoPavarde.Name = "txtStudentoPavarde";
+            this.txtStudentoPavarde.Size = new System.Drawing.Size(194, 22);
+            this.txtStudentoPavarde.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Studento Pavardė";
+            // 
+            // txtStudentoVardas
+            // 
+            this.txtStudentoVardas.Location = new System.Drawing.Point(13, 51);
+            this.txtStudentoVardas.Name = "txtStudentoVardas";
+            this.txtStudentoVardas.Size = new System.Drawing.Size(194, 22);
+            this.txtStudentoVardas.TabIndex = 10;
+            // 
+            // btnPridėti
+            // 
+            this.btnPridėti.Location = new System.Drawing.Point(13, 176);
+            this.btnPridėti.Name = "btnPridėti";
+            this.btnPridėti.Size = new System.Drawing.Size(125, 54);
+            this.btnPridėti.TabIndex = 9;
+            this.btnPridėti.Text = "Pridėti";
+            this.btnPridėti.UseVisualStyleBackColor = true;
+            this.btnPridėti.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Studento vardas";
+            // 
+            // StudentasDataGridView
+            // 
+            this.StudentasDataGridView.AllowUserToAddRows = false;
+            this.StudentasDataGridView.AllowUserToDeleteRows = false;
+            this.StudentasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StudentasDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.StudentasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentasDataGridView.Location = new System.Drawing.Point(231, 21);
+            this.StudentasDataGridView.Name = "StudentasDataGridView";
+            this.StudentasDataGridView.ReadOnly = true;
+            this.StudentasDataGridView.RowTemplate.Height = 24;
+            this.StudentasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.StudentasDataGridView.Size = new System.Drawing.Size(326, 434);
+            this.StudentasDataGridView.TabIndex = 9;
+            this.StudentasDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentasDataGridView_CellContentClick);
+            // 
+            // btnStudentas
+            // 
+            this.btnStudentas.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnStudentas.FlatAppearance.BorderSize = 2;
+            this.btnStudentas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnStudentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnStudentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStudentas.Location = new System.Drawing.Point(6, 31);
+            this.btnStudentas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentas.Name = "btnStudentas";
+            this.btnStudentas.Size = new System.Drawing.Size(139, 54);
+            this.btnStudentas.TabIndex = 2;
+            this.btnStudentas.Text = "Studentas";
+            this.btnStudentas.UseVisualStyleBackColor = true;
+            // 
+            // btnDestytojas
+            // 
+            this.btnDestytojas.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnDestytojas.FlatAppearance.BorderSize = 2;
+            this.btnDestytojas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnDestytojas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDestytojas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDestytojas.Location = new System.Drawing.Point(6, 89);
+            this.btnDestytojas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDestytojas.Name = "btnDestytojas";
+            this.btnDestytojas.Size = new System.Drawing.Size(139, 54);
+            this.btnDestytojas.TabIndex = 3;
+            this.btnDestytojas.Text = "Dėstytojas";
+            this.btnDestytojas.UseVisualStyleBackColor = true;
+            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
             // 
             // btn_Atsijungti
             // 
-            this.btn_Atsijungti.Location = new System.Drawing.Point(983, 419);
+            this.btn_Atsijungti.Location = new System.Drawing.Point(659, 479);
             this.btn_Atsijungti.Name = "btn_Atsijungti";
             this.btn_Atsijungti.Size = new System.Drawing.Size(125, 54);
             this.btn_Atsijungti.TabIndex = 4;
@@ -108,8 +209,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnLogIn);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btnDalykai);
+            this.groupBox3.Controls.Add(this.BtnGrupe);
+            this.groupBox3.Controls.Add(this.btnStudentas);
+            this.groupBox3.Controls.Add(this.btnDestytojas);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(161, 461);
@@ -117,49 +220,43 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
             // 
-            // dgwGrupe
+            // BtnGrupe
             // 
-            this.dgwGrupe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwGrupe.Location = new System.Drawing.Point(6, 157);
-            this.dgwGrupe.Name = "dgwGrupe";
-            this.dgwGrupe.RowTemplate.Height = 24;
-            this.dgwGrupe.Size = new System.Drawing.Size(240, 304);
-            this.dgwGrupe.TabIndex = 5;
+            this.BtnGrupe.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.BtnGrupe.FlatAppearance.BorderSize = 2;
+            this.BtnGrupe.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtnGrupe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnGrupe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGrupe.Location = new System.Drawing.Point(6, 147);
+            this.BtnGrupe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnGrupe.Name = "BtnGrupe";
+            this.BtnGrupe.Size = new System.Drawing.Size(139, 54);
+            this.BtnGrupe.TabIndex = 4;
+            this.BtnGrupe.Text = "Grupes";
+            this.BtnGrupe.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnDalykai
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Grupės pavadinimas";
-            // 
-            // txtGrupe
-            // 
-            this.txtGrupe.Location = new System.Drawing.Point(6, 51);
-            this.txtGrupe.Name = "txtGrupe";
-            this.txtGrupe.Size = new System.Drawing.Size(194, 22);
-            this.txtGrupe.TabIndex = 7;
-            // 
-            // btnPridetiGrupe
-            // 
-            this.btnPridetiGrupe.Location = new System.Drawing.Point(6, 79);
-            this.btnPridetiGrupe.Name = "btnPridetiGrupe";
-            this.btnPridetiGrupe.Size = new System.Drawing.Size(125, 54);
-            this.btnPridetiGrupe.TabIndex = 8;
-            this.btnPridetiGrupe.Text = "Pridėti";
-            this.btnPridetiGrupe.UseVisualStyleBackColor = true;
-            this.btnPridetiGrupe.Click += new System.EventHandler(this.btnPridetiGrupe_Click);
+            this.btnDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnDalykai.FlatAppearance.BorderSize = 2;
+            this.btnDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDalykai.Location = new System.Drawing.Point(6, 205);
+            this.btnDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDalykai.Name = "btnDalykai";
+            this.btnDalykai.Size = new System.Drawing.Size(139, 54);
+            this.btnDalykai.TabIndex = 5;
+            this.btnDalykai.Text = "Dalykai";
+            this.btnDalykai.UseVisualStyleBackColor = true;
             // 
             // frmAdminStudentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1129, 485);
+            this.ClientSize = new System.Drawing.Size(812, 528);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_Atsijungti);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -168,10 +265,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdminStudentas";
             this.Load += new System.EventHandler(this.frmAdmin_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentasDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwGrupe)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,14 +276,21 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnLogIn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStudentas;
+        private System.Windows.Forms.Button btnDestytojas;
         private System.Windows.Forms.Button btn_Atsijungti;
-        private System.Windows.Forms.Button btnPridetiGrupe;
-        private System.Windows.Forms.DataGridView dgwGrupe;
-        private System.Windows.Forms.TextBox txtGrupe;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtStudentoPavarde;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtStudentoVardas;
+        private System.Windows.Forms.Button btnPridėti;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView StudentasDataGridView;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox ComboGrupe;
+        private System.Windows.Forms.Button btnNaikinti;
+        private System.Windows.Forms.Button btnAtnaujinti;
+        private System.Windows.Forms.Button btnDalykai;
+        private System.Windows.Forms.Button BtnGrupe;
     }
 }
