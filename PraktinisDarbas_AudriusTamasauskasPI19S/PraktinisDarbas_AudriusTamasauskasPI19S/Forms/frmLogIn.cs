@@ -152,5 +152,12 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
+
+        private void btnAdminPazymiai_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmPazimiai frmPazimiai = new frmPazimiai();
+            frmPazimiai.Show();
+        }
     }
 }

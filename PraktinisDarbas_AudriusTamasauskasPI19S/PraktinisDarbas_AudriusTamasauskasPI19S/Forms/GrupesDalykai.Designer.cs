@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGrupesDalykai));
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnGrupsDalykai = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.BtwDalykasPrideti = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
+            this.btnPazimiai = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrupeDataGridView)).BeginInit();
@@ -70,6 +72,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnPazimiai);
             this.groupBox3.Controls.Add(this.BtnGrupsDalykai);
             this.groupBox3.Controls.Add(this.btnStudentas);
             this.groupBox3.Controls.Add(this.btnDestytojas);
@@ -253,6 +256,22 @@
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
             this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
             // 
+            // btnPazimiai
+            // 
+            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnPazimiai.FlatAppearance.BorderSize = 2;
+            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
+            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPazimiai.Name = "btnPazimiai";
+            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
+            this.btnPazimiai.TabIndex = 11;
+            this.btnPazimiai.Text = "Pažymiai";
+            this.btnPazimiai.UseVisualStyleBackColor = true;
+            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
+            // 
             // frmGrupesDalykai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,8 +281,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGrupesDalykai";
             this.Text = "GrupesDalykai";
+            this.Load += new System.EventHandler(this.frmGrupesDalykai_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -294,5 +315,6 @@
         private System.Windows.Forms.TextBox txtGrupe;
         private System.Windows.Forms.TextBox txtDalykas;
         private System.Windows.Forms.Button btn_Atsijungti;
+        private System.Windows.Forms.Button btnPazimiai;
     }
 }

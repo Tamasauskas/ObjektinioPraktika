@@ -45,6 +45,7 @@
             this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnGrupsDalykai = new System.Windows.Forms.Button();
+            this.btnPazimiai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentasDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnPazimiai);
             this.groupBox3.Controls.Add(this.BtnGrupsDalykai);
             this.groupBox3.Controls.Add(this.btnStudentas);
             this.groupBox3.Controls.Add(this.btnDestytojas);
@@ -233,6 +235,22 @@
             this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
             this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
             this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
+            // 
+            // btnPazimiai
+            // 
+            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnPazimiai.FlatAppearance.BorderSize = 2;
+            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
+            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPazimiai.Name = "btnPazimiai";
+            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
+            this.btnPazimiai.TabIndex = 5;
+            this.btnPazimiai.Text = "Pažymiai";
+            this.btnPazimiai.UseVisualStyleBackColor = true;
+            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
             // 
             // frmAdminStudentas
             // 
@@ -275,5 +293,6 @@
         private System.Windows.Forms.Button btnNaikinti;
         private System.Windows.Forms.Button btnAtnaujinti;
         private System.Windows.Forms.Button BtnGrupsDalykai;
+        private System.Windows.Forms.Button btnPazimiai;
     }
 }

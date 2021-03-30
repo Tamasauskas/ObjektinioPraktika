@@ -140,6 +140,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
+
         private void PatikrintiArNeraGrupesDaluku()
         {
             con.Open();
@@ -161,6 +162,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
+
         private void PatikrintiArNeraStudentuGrupeje()
         {
             con.Open();
@@ -183,6 +185,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
+
         private void SalingiGrupe()
         {
             if (txtGrupe.Text == "")
@@ -209,11 +212,13 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 GrupeDataGridView.DataSource = FillGrupeDatagrid();
             }
         }
+
         private void btnGrupePasalinti_Click(object sender, EventArgs e)
         {
             PatikrintiArNeraStudentuGrupeje();
             GrupeDataGridView.DataSource = FillGrupeDatagrid();
         }
+
         private void SalintiDalyka()
         {
             if (txtDalykas.Text == "")
@@ -240,11 +245,13 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 
             }
         }
+
         private void btnDalykasPašalinti_Click(object sender, EventArgs e)
         {
             PatikrintiArDalykoMokosi();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
+
         public void PatikrintiArDalykoMokosi()
         {
             con.Open();
@@ -264,6 +271,18 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 MessageBox.Show("Klaida- dalyko mokosi grupe.");
 
             }
+        }
+
+        private void frmGrupesDalykai_Load(object sender, EventArgs e)
+        {
+            this.Text = "Admininstratorius";
+        }
+
+        private void btnPazimiai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmPazimiai frmPazimiai = new frmPazimiai();
+            frmPazimiai.Show();
         }
     }
 }

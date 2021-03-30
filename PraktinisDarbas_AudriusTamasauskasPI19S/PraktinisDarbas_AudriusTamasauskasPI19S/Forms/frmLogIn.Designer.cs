@@ -36,8 +36,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStudentoIvedimas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDestytojas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDestytojas = new System.Windows.Forms.Button();
+            this.btnAdminPazymiai = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +113,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(696, 320);
+            this.pictureBox1.Size = new System.Drawing.Size(602, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -129,25 +130,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAdminPazymiai);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnDestytojas);
             this.groupBox1.Controls.Add(this.btnStudentoIvedimas);
             this.groupBox1.Location = new System.Drawing.Point(390, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(294, 280);
+            this.groupBox1.Size = new System.Drawing.Size(187, 280);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Greita prieiga";
-            // 
-            // btnDestytojas
-            // 
-            this.btnDestytojas.Location = new System.Drawing.Point(6, 72);
-            this.btnDestytojas.Name = "btnDestytojas";
-            this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
-            this.btnDestytojas.TabIndex = 6;
-            this.btnDestytojas.Text = "AdminDestytojai";
-            this.btnDestytojas.UseVisualStyleBackColor = true;
-            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
             // 
             // button1
             // 
@@ -159,11 +151,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDestytojas
+            // 
+            this.btnDestytojas.Location = new System.Drawing.Point(6, 72);
+            this.btnDestytojas.Name = "btnDestytojas";
+            this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
+            this.btnDestytojas.TabIndex = 6;
+            this.btnDestytojas.Text = "AdminDestytojai";
+            this.btnDestytojas.UseVisualStyleBackColor = true;
+            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
+            // 
+            // btnAdminPazymiai
+            // 
+            this.btnAdminPazymiai.Location = new System.Drawing.Point(6, 156);
+            this.btnAdminPazymiai.Name = "btnAdminPazymiai";
+            this.btnAdminPazymiai.Size = new System.Drawing.Size(161, 36);
+            this.btnAdminPazymiai.TabIndex = 8;
+            this.btnAdminPazymiai.Text = "AdminPazymiai";
+            this.btnAdminPazymiai.UseVisualStyleBackColor = true;
+            this.btnAdminPazymiai.Click += new System.EventHandler(this.btnAdminPazymiai_Click);
+            // 
             // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 320);
+            this.ClientSize = new System.Drawing.Size(602, 320);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLonInName);
@@ -195,6 +207,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDestytojas;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdminPazymiai;
     }
 }
 

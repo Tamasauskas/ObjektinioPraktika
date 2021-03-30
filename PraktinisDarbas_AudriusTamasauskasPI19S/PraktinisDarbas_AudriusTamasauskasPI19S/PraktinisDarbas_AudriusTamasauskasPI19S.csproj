@@ -96,6 +96,12 @@
     <Compile Include="Forms\GrupesDalykai.Designer.cs">
       <DependentUpon>GrupesDalykai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPazymiai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPazymiai.Designer.cs">
+      <DependentUpon>frmPazymiai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\_Objektinis_ProgramavimasDataSet.Designer.cs">
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDestytojas.resx">
       <DependentUpon>frmDestytojas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPazymiai.resx">
+      <DependentUpon>frmPazymiai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStudentas.resx">
       <DependentUpon>frmStudentas.cs</DependentUpon>
