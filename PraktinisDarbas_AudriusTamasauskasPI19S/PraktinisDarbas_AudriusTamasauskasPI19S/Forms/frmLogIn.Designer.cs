@@ -36,9 +36,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStudentoIvedimas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAdminPazymiai = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDestytojas = new System.Windows.Forms.Button();
-            this.btnAdminPazymiai = new System.Windows.Forms.Button();
+            this.Studentas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +131,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Studentas);
             this.groupBox1.Controls.Add(this.btnAdminPazymiai);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnDestytojas);
@@ -140,6 +142,16 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Greita prieiga";
+            // 
+            // btnAdminPazymiai
+            // 
+            this.btnAdminPazymiai.Location = new System.Drawing.Point(6, 156);
+            this.btnAdminPazymiai.Name = "btnAdminPazymiai";
+            this.btnAdminPazymiai.Size = new System.Drawing.Size(161, 36);
+            this.btnAdminPazymiai.TabIndex = 8;
+            this.btnAdminPazymiai.Text = "AdminPazymiai";
+            this.btnAdminPazymiai.UseVisualStyleBackColor = true;
+            this.btnAdminPazymiai.Click += new System.EventHandler(this.btnAdminPazymiai_Click);
             // 
             // button1
             // 
@@ -161,15 +173,15 @@
             this.btnDestytojas.UseVisualStyleBackColor = true;
             this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
             // 
-            // btnAdminPazymiai
+            // Studentas
             // 
-            this.btnAdminPazymiai.Location = new System.Drawing.Point(6, 156);
-            this.btnAdminPazymiai.Name = "btnAdminPazymiai";
-            this.btnAdminPazymiai.Size = new System.Drawing.Size(161, 36);
-            this.btnAdminPazymiai.TabIndex = 8;
-            this.btnAdminPazymiai.Text = "AdminPazymiai";
-            this.btnAdminPazymiai.UseVisualStyleBackColor = true;
-            this.btnAdminPazymiai.Click += new System.EventHandler(this.btnAdminPazymiai_Click);
+            this.Studentas.Location = new System.Drawing.Point(6, 198);
+            this.Studentas.Name = "Studentas";
+            this.Studentas.Size = new System.Drawing.Size(161, 36);
+            this.Studentas.TabIndex = 9;
+            this.Studentas.Text = "Studentas";
+            this.Studentas.UseVisualStyleBackColor = true;
+            this.Studentas.Click += new System.EventHandler(this.Studentas_Click);
             // 
             // frmLogIn
             // 
@@ -208,6 +220,7 @@
         private System.Windows.Forms.Button btnDestytojas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAdminPazymiai;
+        private System.Windows.Forms.Button Studentas;
     }
 }
 

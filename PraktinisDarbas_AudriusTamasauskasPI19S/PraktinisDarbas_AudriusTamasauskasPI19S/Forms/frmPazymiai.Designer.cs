@@ -178,6 +178,7 @@
             this.btnPazymysAtnaujinti.TabIndex = 11;
             this.btnPazymysAtnaujinti.Text = "Atnaujinti";
             this.btnPazymysAtnaujinti.UseVisualStyleBackColor = true;
+            this.btnPazymysAtnaujinti.Click += new System.EventHandler(this.btnPazymysAtnaujinti_Click);
             // 
             // btnPazymysPridėti
             // 

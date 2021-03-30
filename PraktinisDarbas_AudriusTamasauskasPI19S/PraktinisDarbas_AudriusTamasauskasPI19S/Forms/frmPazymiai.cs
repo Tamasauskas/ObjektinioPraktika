@@ -14,6 +14,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
     {
         SQLiteConnection con = new SQLiteConnection();
         clsHelper Helper = new clsHelper();
+        clsPazymys Pazymys = new clsPazymys();
 
         public frmPazimiai()
         {
@@ -73,6 +74,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             {
                 DataGridViewRow row = this.PazymiaiDataGridView.Rows[e.RowIndex];
                 txtPazymys.Text = row.Cells["Pazymys"].Value.ToString();
+                Pazymys.PazymysId = row.Cells["Pazymys"].Value.ToString();
             }
         }
 
@@ -145,6 +147,46 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnPazymysNaikinti_Click(object sender, EventArgs e)
         {
             PatikrintiArPazymysnaudojamas();
+        }
+        private void AtnaujintiPazymi()
+        {
+            Helper.Query = "Update tbl_Pazymys Set PazymysId= '" + txtPazymys.Text + "' Where PazymysId= '" + Pazymys.PazymysId + "'";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida pazymio atnaujinime: " + ex.Message);
+            }
+            con.Close();
+        }
+        private void AtnaujintiPazymiIvertinimuose()
+        {
+            Helper.Query = "Update tbl_StudentoIvertinimas Set PazymysId= '" + txtPazymys.Text + "' Where PazymysId= '" + Pazymys.PazymysId + "'";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            MessageBox.Show("Pazymys text: " +txtPazymys.Text+ "Keicamas i: " +Pazymys.PazymysId);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida pazymio atnaujinime: " + ex.Message);
+            }
+            con.Close();
+        }
+        private void btnPazymysAtnaujinti_Click(object sender, EventArgs e)
+        {
+            AtnaujintiPazymiIvertinimuose();
+            AtnaujintiPazymi();
+            PazymiaiDataGridView.DataSource = FillPazymiaiDatagrid();
+
         }
     }
 }

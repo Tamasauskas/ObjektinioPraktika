@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentas));
             this.btn_Atsijungti = new System.Windows.Forms.Button();
+            this.StudentoIvertinimaiDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentoIvertinimaiDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Atsijungti
             // 
-            this.btn_Atsijungti.Location = new System.Drawing.Point(338, 198);
+            this.btn_Atsijungti.Location = new System.Drawing.Point(826, 373);
             this.btn_Atsijungti.Name = "btn_Atsijungti";
             this.btn_Atsijungti.Size = new System.Drawing.Size(125, 54);
             this.btn_Atsijungti.TabIndex = 5;
@@ -42,16 +44,32 @@
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
             this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
             // 
+            // StudentoIvertinimaiDataGridView
+            // 
+            this.StudentoIvertinimaiDataGridView.AllowUserToAddRows = false;
+            this.StudentoIvertinimaiDataGridView.AllowUserToDeleteRows = false;
+            this.StudentoIvertinimaiDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.StudentoIvertinimaiDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.StudentoIvertinimaiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentoIvertinimaiDataGridView.Location = new System.Drawing.Point(12, 8);
+            this.StudentoIvertinimaiDataGridView.Name = "StudentoIvertinimaiDataGridView";
+            this.StudentoIvertinimaiDataGridView.ReadOnly = true;
+            this.StudentoIvertinimaiDataGridView.RowTemplate.Height = 24;
+            this.StudentoIvertinimaiDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.StudentoIvertinimaiDataGridView.Size = new System.Drawing.Size(939, 359);
+            this.StudentoIvertinimaiDataGridView.TabIndex = 10;
+            // 
             // frmStudentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(963, 435);
+            this.Controls.Add(this.StudentoIvertinimaiDataGridView);
             this.Controls.Add(this.btn_Atsijungti);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStudentas";
             this.Text = "frmStudentas";
-            this.Load += new System.EventHandler(this.frmStudentas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.StudentoIvertinimaiDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,5 +77,6 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Atsijungti;
+        private System.Windows.Forms.DataGridView StudentoIvertinimaiDataGridView;
     }
 }

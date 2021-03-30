@@ -159,5 +159,12 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             frmPazimiai frmPazimiai = new frmPazimiai();
             frmPazimiai.Show();
         }
+
+        private void Studentas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmStudentas frmStudentas = new frmStudentas("TestV", "TestP", "5");
+            frmStudentas.Show();
+        }
     }
 }
