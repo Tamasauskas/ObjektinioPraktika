@@ -235,7 +235,7 @@
             this.BtwDalykasPrideti.TabIndex = 11;
             this.BtwDalykasPrideti.Text = "Pridėti";
             this.BtwDalykasPrideti.UseVisualStyleBackColor = true;
-            this.BtwDalykasPrideti.Click += new System.EventHandler(this.BtwDalykasPrideti_Click);
+            this.BtwDalykasPrideti.Click += new System.EventHandler(this.btnDalykasPrideti_Click);
             // 
             // label2
             // 
@@ -254,7 +254,7 @@
             this.btn_Atsijungti.TabIndex = 10;
             this.btn_Atsijungti.Text = "Atsijungti";
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
-            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
             // btnPazimiai
             // 

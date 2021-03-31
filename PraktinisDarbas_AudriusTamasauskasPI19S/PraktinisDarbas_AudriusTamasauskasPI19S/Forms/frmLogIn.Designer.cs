@@ -36,11 +36,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStudentoIvedimas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDestytojas = new System.Windows.Forms.Button();
             this.btnStudentas = new System.Windows.Forms.Button();
             this.btnAdminPazymiai = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDestytojoIvedimas = new System.Windows.Forms.Button();
-            this.btnDestytojas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -145,6 +145,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Greita prieiga";
             // 
+            // btnDestytojas
+            // 
+            this.btnDestytojas.Location = new System.Drawing.Point(6, 238);
+            this.btnDestytojas.Name = "btnDestytojas";
+            this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
+            this.btnDestytojas.TabIndex = 10;
+            this.btnDestytojas.Text = "Destytojas";
+            this.btnDestytojas.UseVisualStyleBackColor = true;
+            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click_1);
+            // 
             // btnStudentas
             // 
             this.btnStudentas.Location = new System.Drawing.Point(6, 198);
@@ -153,7 +163,7 @@
             this.btnStudentas.TabIndex = 9;
             this.btnStudentas.Text = "Studentas";
             this.btnStudentas.UseVisualStyleBackColor = true;
-            this.btnStudentas.Click += new System.EventHandler(this.Studentas_Click);
+            this.btnStudentas.Click += new System.EventHandler(this.btnStudentas_Click);
             // 
             // btnAdminPazymiai
             // 
@@ -173,7 +183,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "AdminDalykaiGrupes";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.btnGrupesDalykai);
             // 
             // btnDestytojoIvedimas
             // 
@@ -185,17 +195,7 @@
             this.btnDestytojoIvedimas.UseVisualStyleBackColor = true;
             this.btnDestytojoIvedimas.Click += new System.EventHandler(this.btnDestytojas_Click);
             // 
-            // btnDestytojas
-            // 
-            this.btnDestytojas.Location = new System.Drawing.Point(6, 238);
-            this.btnDestytojas.Name = "btnDestytojas";
-            this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
-            this.btnDestytojas.TabIndex = 10;
-            this.btnDestytojas.Text = "Destytojas";
-            this.btnDestytojas.UseVisualStyleBackColor = true;
-            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click_1);
-            // 
-            // frmLogIn
+            // FrmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmLogIn";
+            this.Name = "FrmLogIn";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prisijungimas";

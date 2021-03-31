@@ -1,26 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Windows.Forms;
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Forma darbui su destytojo duomenimis
+    /// </summary>
     public partial class FrmAdminDestytojas : Form
     {
-        SQLiteConnection con = new SQLiteConnection();
+
+        #region
+        SQLiteConnection con = new SQLiteConnection(ClsHelper.ConnectionString);
         ClsHelper Helper = new ClsHelper();
         ClsDalykas Dalykas = new ClsDalykas();
         ClsDestytojas Destytojas = new ClsDestytojas();
+        #endregion
 
+        /// <summary>
+        /// Formos uzsikrovimo veiksmai
+        /// </summary>
         public FrmAdminDestytojas()
         {
             InitializeComponent();
-            con.ConnectionString = ClsHelper.ConnectionString;
             FillComboDalykas();
             FillComboGrupe();
             DestytojasDataGridView.DataSource = FillDatagrid();
@@ -28,19 +30,17 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             DestytojasDataGridView.Columns["DalykoId"].Visible = false;
 
         }
-
-        private void btnStudentas_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
-            frmAdminStudentas.Show();
-        }
-
+ 
+        /// <summary>
+        /// Nurodo formos varda
+        /// </summary>
         private void frmAdminDestytojas_Load(object sender, EventArgs e)
         {
             this.Text = "Admininstratorius";
         }
-
+        /// <summary>
+        /// Uzpildo dalyko combobox
+        /// </summary>
         private void FillComboDalykas()
         {
 
@@ -63,7 +63,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Uzpildo grupes combobox
+        /// </summary>
         private void FillComboGrupe()
         {
 
@@ -86,7 +88,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Uzpildo lentele
+        /// </summary>
+        /// <returns></returns>
         private DataTable FillDatagrid()
         {
             DataTable dt = new DataTable();
@@ -106,14 +111,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             return dt;
 
         }
-
-        private void btn_Atsijungti_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLogIn frmLogIn = new FrmLogIn();
-            frmLogIn.Show();
-        }
-
+        /// <summary>
+        /// Insert i tbl_Destytojas
+        /// </summary>
         private void PridetiDestytoja()
         {
                 Helper.Query = "Insert Into tbl_Destytojas (Vardas, Pavarde) values ('" + txtDestytojoVardas.Text + "', '" + txtDestytojoPavarde.Text + "');";
@@ -130,7 +130,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 }
                 con.Close();
         }
-
+        /// <summary>
+        /// Rasti DestytojoId
+        /// </summary>
         private void RastiDestytojoId()
         {
                 con.Open();
@@ -139,7 +141,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 Destytojas.DestytojoId = cmd.ExecuteScalar().ToString();
                 con.Close();
         }
-
+        /// <summary>
+        /// Priskirti destytojui dalykus ir grupe kuriai destys
+        /// </summary>
         private void IterptiDestomusDalykus()
         {
             Helper.Query = "Insert Into tbl_Dalykas (DestytojoId, GrupesId, DalykoPavadinimasId) values ('" + Destytojas.DestytojoId + "', '" + ComboGrupe.Text + "','" + ComboDalykas.Text + "');";
@@ -158,7 +162,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             
         }
-
+        /// <summary>
+        /// Patikrinti ar irasas nesidubliuoja
+        /// </summary>
         private void PatikrintiArjauYraToksDestytojas()
         {
             con.Open();
@@ -177,7 +183,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
 
         }
-
+        /// <summary>
+        /// Mygtukas Insert i tbl_Destytojas ir tbl_Dalykas
+        /// </summary>
         private void btnPridėti_Click(object sender, EventArgs e)
         {
             if (txtDestytojoVardas.Text == "" || txtDestytojoPavarde.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text == "")
@@ -193,7 +201,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             
         }
-
+        /// <summary>
+        /// Priskirti teksto laukams vertes jei yra pasirinkimas is lenteles
+        /// </summary>
         private void DestytojasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -208,7 +218,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 //MessageBox.Show("Dalykas: " + Dalykas.DalykoId + "Destytojas " + Dalykas.DestytojoId);
             }
         }
-
+        /// <summary>
+        /// Update tbl_Destytojas
+        /// </summary>
         private void DestytojasUpdate()
         {
             Destytojas.Vardas = txtDestytojoVardas.Text;
@@ -230,7 +242,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             
         }
-
+        /// <summary>
+        /// Update tbl_Dalykas
+        /// </summary>
         private void DalykasUpdate()
         {
            
@@ -249,7 +263,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
 
         }
-
+        /// <summary>
+        /// Mygtukas Update ivykdymui
+        /// </summary>
         private void btnAtnaujinti_Click(object sender, EventArgs e)
         {
             if (txtDestytojoPavarde.Text == "" || txtDestytojoVardas.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text=="" || Dalykas.DalykoId=="")
@@ -266,7 +282,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
 
         }
-
+        /// <summary>
+        /// Delete is tbl_Destytojas
+        /// </summary>
         private void TrintiDestytoja()
         {
             if (txtDestytojoVardas.Text == "" || txtDestytojoPavarde.Text == "" || ComboGrupe.Text == "" || Destytojas.DestytojoId == "" || ComboDalykas.Text =="")
@@ -291,7 +309,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 con.Close();
             }
         }
-
+        /// <summary>
+        /// Delete is tbl_Dalykas
+        /// </summary>
         private void TrintiDalyka()
         {
             Helper.Query = "Delete From tbl_Dalykas Where DalykoId='" + Dalykas.DalykoId + "'";
@@ -309,7 +329,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Patikrinti ar paskutinis destytojo irasas ir jei taip pasalinti ir dalyka ir destytoja
+        /// </summary>
         private void TikrintiArPaskutinisDestytojoIrasas()
         {
             con.Open();
@@ -332,25 +354,49 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
-
+        /// <summary>
+        /// Mygtukas destytojo ir/arba dalyko pasalinimui
+        /// </summary>
         private void btnNaikinti_Click(object sender, EventArgs e)
         {
             TikrintiArPaskutinisDestytojoIrasas();
             DestytojasDataGridView.DataSource = FillDatagrid();
         }
-
+        /// <summary>
+        /// Mygtukas perejimui i forma grupiu ir dalyku pavadinimu valdymo forma
+        /// </summary>
         private void BtnGrupesDalykai_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
-
+        /// <summary>
+        /// Mygtukas perejimui i pazymiu verciu kontroles forma
+        /// </summary>
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
+        }
+        /// <summary>
+        /// mygtukas perejimui i forma skirta darbui su studentu duomenimis
+        /// </summary>
+        private void btnStudentas_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
+            frmAdminStudentas.Show();
+        }
+        /// <summary>
+        /// Atsijungti ir grizti i LogIn forma
+        /// </summary>
+        private void btnAtsijungti_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogIn frmLogIn = new FrmLogIn();
+            frmLogIn.Show();
         }
     }
 }

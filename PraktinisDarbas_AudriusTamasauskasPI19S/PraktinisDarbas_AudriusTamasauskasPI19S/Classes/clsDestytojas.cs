@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PraktinisDarbas_AudriusTamasauskasPI19S
+﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class ClsDestytojas: ClsAsmuo
+    /// <summary>
+    /// Klase skirta darbui su tbl_Destytojas vertemis, destytojo vardas ir pavarde pavedimi is ClsAsmuo
+    /// </summary>
+    class ClsDestytojas : ClsAsmuo
     {
         public string DestytojoId { get; set; }
     }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PraktinisDarbas_AudriusTamasauskasPI19S
+﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Klase skirta darbui su tbl_Grupe vertemis
+    /// </summary>
     class ClsGrupe
     {
         public string GrupesId { get; set; }

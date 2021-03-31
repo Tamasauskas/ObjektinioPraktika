@@ -1,30 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Forma skirta Destytojams, kad valdyti studentu pazymius
+    /// </summary>
     public partial class FrmDestytojas : Form
     {
-        SQLiteConnection con = new SQLiteConnection();
+        #region
+        SQLiteConnection con = new SQLiteConnection(ClsHelper.ConnectionString);
         ClsDestytojas Destytojas = new ClsDestytojas();
         ClsHelper Helper = new ClsHelper();
         ClsDalykas Dalykas = new ClsDalykas();
         ClsGrupe Grupe = new ClsGrupe();
         ClsPazymys Pazymys = new ClsPazymys();
         ClsStudentas Studentas = new ClsStudentas();
-
+        #endregion
+        /// <summary>
+        /// Formos uzsikrovimo veiksmai
+        /// </summary>
+        /// <param name="dst_vardas"></param>
+        /// <param name="dst_Pavarde"></param>
+        /// <param name="dst_Id"></param>
         public FrmDestytojas(string dst_vardas, string dst_Pavarde, string dst_Id)
         {
             InitializeComponent();
-            con.ConnectionString = ClsHelper.ConnectionString;
             Text = dst_vardas + " " + dst_Pavarde;
             Destytojas.Vardas = dst_vardas;
             Destytojas.Pavarde = dst_Pavarde;
@@ -34,7 +37,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             FillComboPazymiai();
             DestytojasDataGridView.DataSource = FillDatagrid();
         }
-
+        /// <summary>
+        /// Lenteles uzpildymas
+        /// </summary>
         private DataTable FillDatagrid()
         {
             DataTable dt = new DataTable();
@@ -63,8 +68,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             return dt;
 
         }
-
-
+        /// <summary>
+        /// Combox grupe uzpildymas
+        /// </summary>
         private void FillComboGrupe()
         {
             Helper.Query = "Select Distinct (tbl_Dalykas.GrupesId) From tbl_Dalykas Where DestytojoId= '" + Destytojas.DestytojoId + "' ;";
@@ -86,7 +92,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Combobox dalykas uzpuldymas
+        /// </summary>
         private void FillComboDalykas()
         {
             Helper.Query = "Select Distinct (tbl_Dalykas.DalykoPavadinimasId) From tbl_Dalykas Where DestytojoId= '" + Destytojas.DestytojoId + "' ;";
@@ -108,7 +116,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Combobox pazymiai uzpildymas
+        /// </summary>
         private void FillComboPazymiai()
         {
             Helper.Query = "Select PazymysId from tbl_Pazymys;";
@@ -130,7 +140,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Combobox Studentas uzpildymas
+        /// </summary>
         private void FillComboStudentai()
         {
             Helper.Query = "Select Vardas || ' ' || Pavarde As Studentas from tbl_Studentas Where GrupesId='" + Grupe.GrupesId + "' ;";
@@ -152,26 +164,25 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
-        private void btn_Atsijungti_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLogIn frmLogIn = new FrmLogIn();
-            frmLogIn.Show();
-        }
-
+        /// <summary>
+        /// Atnaujinti studentu sarasa combobox studentas jei pasirinkta grupe
+        /// </summary>
         private void ComboGrupe_SelectedIndexChanged(object sender, EventArgs e)
         {
             Grupe.GrupesId = ComboGrupe.Text;
             ComboStudentas.Items.Clear();
             FillComboStudentai();
         }
-
+        /// <summary>
+        /// Priskirti pasirinkta irasa prie dalyko
+        /// </summary>
         private void ComboDalykas_SelectedIndexChanged(object sender, EventArgs e)
         {
             Dalykas.DalykoPavadinimasId = ComboDalykas.Text;
         }
-
+        /// <summary>
+        /// Rasti pasirinkto DalykoPavadinimasId DalykoId
+        /// </summary>
         private void RastiDalykoId()
         {
 
@@ -193,12 +204,16 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
 
         }
-
+        /// <summary>
+        /// Priskirti pasirinkta dalyka prie PazymysId
+        /// </summary>
         private void ComboIvertinimas_SelectedIndexChanged(object sender, EventArgs e)
         {
             Pazymys.PazymysId = ComboIvertinimas.Text;
         }
-
+        /// <summary>
+        /// Neleisti rinktis studentu jei nepasirinkta grupe
+        /// </summary>
         private void ComboStudentas_MouseClick(object sender, MouseEventArgs e)
         {
 
@@ -208,7 +223,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
 
         }
-
+        /// <summary>
+        /// Rasti pasirinktam sudentui priklausanti StudentoId
+        /// </summary>
         private void RastiStudentoId()
         {
             con.Open();
@@ -231,17 +248,22 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
 
         }
-
+        /// <summary>
+        /// Isskaidyti pasirinkta varda ir pavarde ir rasti StudentoId
+        /// </summary>
         private void ComboStudentas_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             string PilnasVardas = ComboStudentas.Text;
             var Split = PilnasVardas.Split(' ');
             Studentas.Vardas = Split[0];
             Studentas.Pavarde = Split[1];
             RastiStudentoId();
         }
-
-        private void btn_IrasytiPazymi_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Insert pazymi studentu i tbl_StudentoIvertinimas
+        /// </summary>
+        private void btnIrasytiPazymi_Click(object sender, EventArgs e)
         {
             
             if (ComboStudentas.Text == "" || ComboGrupe.Text == "" || ComboDalykas.Text == "" || ComboIvertinimas.Text == "" )
@@ -271,8 +293,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
 
         }
-
-        private void btn_PakeistiPazimi_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Update studento ivertinima tbl_StudentoIvertinimas
+        /// </summary>
+        private void btnPakeistiPazimi_Click(object sender, EventArgs e)
         {
 
             if (ComboStudentas.Text == "" || ComboGrupe.Text == "" || ComboDalykas.Text == "" || ComboIvertinimas.Text == "")
@@ -299,7 +323,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 DestytojasDataGridView.DataSource = FillDatagrid();
             }
         }
-
+        /// <summary>
+        /// Priskirti lenteleje pasirinktus irasus teksto laukams
+        /// </summary>
         private void DestytojasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -310,6 +336,15 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 ComboStudentas.Text = row.Cells["Studentas"].Value.ToString();
 
             }
+        }
+        /// <summary>
+        /// Mygtukas grizimui i pradzio ekrana
+        /// </summary>
+        private void btnAtsijungti_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogIn frmLogIn = new FrmLogIn();
+            frmLogIn.Show();
         }
     }
 }

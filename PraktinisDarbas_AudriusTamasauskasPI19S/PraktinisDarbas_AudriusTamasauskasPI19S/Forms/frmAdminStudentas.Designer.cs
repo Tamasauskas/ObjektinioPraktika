@@ -139,7 +139,7 @@
             this.btnPridėti.TabIndex = 9;
             this.btnPridėti.Text = "Pridėti";
             this.btnPridėti.UseVisualStyleBackColor = true;
-            this.btnPridėti.Click += new System.EventHandler(this.button2_Click);
+            this.btnPridėti.Click += new System.EventHandler(this.btnPrideti);
             // 
             // label2
             // 
@@ -205,7 +205,7 @@
             this.btn_Atsijungti.TabIndex = 4;
             this.btn_Atsijungti.Text = "Atsijungti";
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
-            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
             // groupBox3
             // 
@@ -250,7 +250,7 @@
             this.BtnGrupsDalykai.TabIndex = 4;
             this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
             this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
-            this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
+            this.BtnGrupsDalykai.Click += new System.EventHandler(this.btnGrupsDalykai_Click);
             // 
             // frmAdminStudentas
             // 

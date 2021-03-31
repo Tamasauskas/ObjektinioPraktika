@@ -1,33 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Windows.Forms;
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Forma skirta studentams, kad peržiūreti savo ivertinimus
+    /// </summary>
     public partial class FrmStudentas : Form
     {
-        SQLiteConnection con = new SQLiteConnection();
+        #region
+        SQLiteConnection con = new SQLiteConnection(ClsHelper.ConnectionString);
         ClsHelper Helper = new ClsHelper();
         ClsStudentas Studentas = new ClsStudentas();
-        
+        #endregion
 
+        /// <summary>
+        /// Formos uzsikrovimo veiksai
+        /// </summary>
         public FrmStudentas(string std_vardas, string std_Pavarde, string std_Id)
         {
             InitializeComponent();
-            con.ConnectionString = ClsHelper.ConnectionString;
             Text = std_vardas + " " + std_Pavarde;
             Studentas.Vardas = std_vardas;
             Studentas.Pavarde = std_Pavarde;
             Studentas.StudentoId = std_Id;
             StudentoIvertinimaiDataGridView.DataSource = FillDatagrid();
         }
-
+        /// <summary>
+        /// Studento pazymiu lenteles uzpildymas
+        /// </summary>
+        /// <returns></returns>
         private DataTable FillDatagrid()
         {
             DataTable dt = new DataTable();
@@ -59,15 +62,16 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             return dt;
 
         }
-
-
-        private void btn_Atsijungti_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Mygtumas grizimui i pradzio forma
+        /// </summary>
+        private void btnAtsijungti_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmLogIn frmLogIn = new FrmLogIn();
             frmLogIn.Show();
         }
 
-     
+ 
     }
 }

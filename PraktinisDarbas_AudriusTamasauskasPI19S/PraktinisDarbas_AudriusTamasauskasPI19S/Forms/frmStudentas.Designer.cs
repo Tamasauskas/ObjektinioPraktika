@@ -42,7 +42,7 @@
             this.btn_Atsijungti.TabIndex = 5;
             this.btn_Atsijungti.Text = "Atsijungti";
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
-            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
             // StudentoIvertinimaiDataGridView
             // 
@@ -59,7 +59,7 @@
             this.StudentoIvertinimaiDataGridView.Size = new System.Drawing.Size(939, 359);
             this.StudentoIvertinimaiDataGridView.TabIndex = 10;
             // 
-            // frmStudentas
+            // FrmStudentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,7 +67,7 @@
             this.Controls.Add(this.StudentoIvertinimaiDataGridView);
             this.Controls.Add(this.btn_Atsijungti);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmStudentas";
+            this.Name = "FrmStudentas";
             this.Text = "frmStudentas";
             ((System.ComponentModel.ISupportInitialize)(this.StudentoIvertinimaiDataGridView)).EndInit();
             this.ResumeLayout(false);

@@ -1,32 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Forma skirta studentu valdymui
+    /// </summary>
     public partial class FrmAdminStudentas : Form
     {
-        SQLiteConnection con = new SQLiteConnection();
+        #region
+        SQLiteConnection con = new SQLiteConnection(ClsHelper.ConnectionString);
         ClsHelper Helper = new ClsHelper();
         ClsStudentas Studentas = new ClsStudentas();
-
+        #endregion
+        /// <summary>
+        /// Formos uzsikrovimo veiksmai
+        /// </summary>
         public FrmAdminStudentas()
         {
             InitializeComponent();
-            con.ConnectionString = ClsHelper.ConnectionString;
-            FillCombo();
+            FillComboGrupe();
             StudentasDataGridView.DataSource = FillDatagrid();
             StudentasDataGridView.Columns["StudentoId"].Visible = false;
         }
-
-        private void FillCombo()
+        /// <summary>
+        /// Uzpildo grupes combobox
+        /// </summary>
+        private void FillComboGrupe()
         {
 
             Helper.Query = "Select * From tbl_Grupe;";
@@ -48,7 +50,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Uzpildo lentele
+        /// </summary>
         private DataTable FillDatagrid()
         {
             DataTable dt = new DataTable();
@@ -68,27 +72,25 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             return dt;
 
         }
-
+        /// <summary>
+        /// Nurodo kas prisijunges
+        /// </summary>
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             this.Text = "Admininstratorius";
 
         }
-
-        private void btn_Atsijungti_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLogIn frmLogIn = new FrmLogIn();
-            frmLogIn.Show();
-        }
-
+        /// <summary>
+        /// Pakeisti StudentoId i pasirinkta is combobox
+        /// </summary>
         private void ComboGrupe_SelectedIndexChanged(object sender, EventArgs e)
         {
             Studentas.GrupeId = ComboGrupe.Text;
         }
-
-
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Mygtukas studento pridejimui i tbl_Studentas
+        /// </summary>
+        private void btnPrideti(object sender, EventArgs e)
         {
 
             if (txtStudentoVardas.Text == "")
@@ -124,7 +126,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             
            
         }
-
+        /// <summary>
+        /// Pasirinkimo is lenteles verciu pridejimas i teksto laukus
+        /// </summary>
         private void StudentasDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >=0)
@@ -136,7 +140,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 Studentas.StudentoId = row.Cells["StudentoId"].Value.ToString();
             }
         }
-
+        /// <summary>
+        /// Update Studento duomenis tbl_Studentas
+        /// </summary>
         private void btnAtnaujinti_Click(object sender, EventArgs e)
         {
             
@@ -167,7 +173,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
            
         }
-
+        /// <summary>
+        /// Delete studento irasus is tbl_StudentoIvertinimai
+        /// </summary>
         private void NaikintiStudentoIvertinimus()
         {
             Helper.Query = "Delete From tbl_StudentoIvertinimas Where StudentoId='" + Studentas.StudentoId + "'";
@@ -185,7 +193,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
             con.Close();
         }
-
+        /// <summary>
+        /// Delete studenta is tbl_Studentas
+        /// </summary>
         private void btnNaikinti_Click(object sender, EventArgs e)
         {
             if (txtStudentoVardas.Text == "" || txtStudentoPavarde.Text == "" || ComboGrupe.Text == "" || Studentas.StudentoId == "")
@@ -214,26 +224,41 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 StudentasDataGridView.DataSource = FillDatagrid();
             }
         }
-
+        /// <summary>
+        /// Mygtukas perejimui i destytoju valdmo forma
+        /// </summary>
         private void btnDestytojas_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
-
-        private void BtnGrupsDalykai_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Mygtukas perejimui i grupiu ir daluku valdymo forma
+        /// </summary>
+        private void btnGrupsDalykai_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
-
+        /// <summary>
+        /// Mygtukas perejimui i pazymiu valdymo forma
+        /// </summary>
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
+        }
+        /// <summary>
+        /// Mygtukas grizimui i pradzio ekrana
+        /// </summary>
+        private void btnAtsijungti_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogIn frmLogIn = new FrmLogIn();
+            frmLogIn.Show();
         }
     }
 }

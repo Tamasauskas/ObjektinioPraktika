@@ -52,7 +52,7 @@
             this.btn_Atsijungti.TabIndex = 5;
             this.btn_Atsijungti.Text = "Atsijungti";
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
-            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
             // btn_IrasytiPazymi
             // 
@@ -68,7 +68,7 @@
             this.btn_IrasytiPazymi.TabIndex = 14;
             this.btn_IrasytiPazymi.Text = "Įrašyti pažymį";
             this.btn_IrasytiPazymi.UseVisualStyleBackColor = true;
-            this.btn_IrasytiPazymi.Click += new System.EventHandler(this.btn_IrasytiPazymi_Click);
+            this.btn_IrasytiPazymi.Click += new System.EventHandler(this.btnIrasytiPazymi_Click);
             // 
             // ComboGrupe
             // 
@@ -155,7 +155,7 @@
             this.btn_PakeistiPazimi.TabIndex = 23;
             this.btn_PakeistiPazimi.Text = "Pakeisti pažymį";
             this.btn_PakeistiPazimi.UseVisualStyleBackColor = true;
-            this.btn_PakeistiPazimi.Click += new System.EventHandler(this.btn_PakeistiPazimi_Click);
+            this.btn_PakeistiPazimi.Click += new System.EventHandler(this.btnPakeistiPazimi_Click);
             // 
             // ComboDalykas
             // 

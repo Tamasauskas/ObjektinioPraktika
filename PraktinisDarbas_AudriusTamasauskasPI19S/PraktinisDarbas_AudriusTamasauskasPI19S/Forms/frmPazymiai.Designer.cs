@@ -89,7 +89,7 @@
             this.BtnGrupsDalykai.TabIndex = 4;
             this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
             this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
-            this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
+            this.BtnGrupsDalykai.Click += new System.EventHandler(this.btnGrupsDalykai_Click);
             // 
             // btnStudentas
             // 
@@ -208,7 +208,7 @@
             this.btn_Atsijungti.TabIndex = 11;
             this.btn_Atsijungti.Text = "Atsijungti";
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
-            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
             // FrmPazimiai
             // 

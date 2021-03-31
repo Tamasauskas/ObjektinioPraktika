@@ -1,32 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
+    /// <summary>
+    /// Forma skirta dalyku pridejimui ir salinimui
+    /// </summary>
     public partial class FrmGrupesDalykai : Form
     {
-        SQLiteConnection con = new SQLiteConnection();
+        #region
+        SQLiteConnection con = new SQLiteConnection(ClsHelper.ConnectionString);
         ClsHelper Helper = new ClsHelper();
         ClsDalykoPavadinimas DalykoPavadinimas = new ClsDalykoPavadinimas();
         ClsGrupe Grupe = new ClsGrupe();
-        
-
+        #endregion
+        /// <summary>
+        /// Formos uzsikrovimo veiksmai
+        /// </summary>
         public FrmGrupesDalykai()
         {
             InitializeComponent();
-            con.ConnectionString = ClsHelper.ConnectionString;
             GrupeDataGridView.DataSource = FillGrupeDatagrid();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
-
+        /// <summary>
+        /// Uzpildyti grupiu lentele
+        /// </summary>
         private DataTable FillGrupeDatagrid()
         {
             DataTable dt = new DataTable();
@@ -45,7 +46,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             return dt;
         }
-
+        /// <summary>
+        /// Uzpilsdyti dalyku lentele
+        /// </summary>
         private DataTable FillDalykasDatagrid()
         {
             DataTable dt = new DataTable();
@@ -65,28 +68,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             return dt;
 
         }
-
-        private void btnStudentas_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
-            frmAdminStudentas.Show();
-        }
-
-        private void btnDestytojas_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
-            frmAdminDestytojas.Show();
-        }
-
-        private void btn_Atsijungti_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            FrmLogIn frmLogIn = new FrmLogIn();
-            frmLogIn.Show();
-        }
-
+        /// <summary>
+        /// Priskirti lenteles pasirinkima grupes teksto laukui
+        /// </summary>
         private void GrupeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -95,7 +79,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 txtGrupe.Text = row.Cells["Grupe"].Value.ToString();
             }
         }
-
+        /// <summary>
+        /// Priskirti lenteles pasirinkima dalyko teksto laukui
+        /// </summary>
         private void DalykasGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -104,7 +90,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 txtDalykas.Text = row.Cells["Dalykas"].Value.ToString();
             }
         }
-
+        /// <summary>
+        /// Insert grupe i tbl_Grupe
+        /// </summary>
         private void btnGrupePridėti_Click(object sender, EventArgs e)
         {
             Helper.Query = "Insert Into tbl_Grupe (GrupesId) values ('" + txtGrupe.Text + "');";
@@ -123,8 +111,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             GrupeDataGridView.DataSource = FillGrupeDatagrid();
         }
-
-        private void BtwDalykasPrideti_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Insert dalyka i tbl_Dalykas
+        /// </summary>
+        private void btnDalykasPrideti_Click(object sender, EventArgs e)
         {
             Helper.Query = "Insert Into tbl_DalykoPavadinimas (DalykoPavadinimasId) values ('" + txtDalykas.Text + "');";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
@@ -142,7 +132,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             con.Close();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
-
+        /// <summary>
+        /// Patikrinti ar nesidubliuoja grupe
+        /// </summary>
         private void PatikrintiArNeraGrupesDaluku()
         {
             con.Open();
@@ -155,7 +147,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             if (dt2.Rows[0][0].ToString() == "0")
             {
                 con.Close();
-                SalingiGrupe();
+                SalintiGrupe();
             }
             else
             {
@@ -164,7 +156,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
-
+        /// <summary>
+        /// Patikrinti ar grupeje yra studentu
+        /// </summary>
         private void PatikrintiArNeraStudentuGrupeje()
         {
             con.Open();
@@ -187,8 +181,10 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
-
-        private void SalingiGrupe()
+        /// <summary>
+        /// Delete grupe is tbl_Grupe
+        /// </summary>
+        private void SalintiGrupe()
         {
             if (txtGrupe.Text == "")
             {
@@ -214,13 +210,17 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 GrupeDataGridView.DataSource = FillGrupeDatagrid();
             }
         }
-
+        /// <summary>
+        /// Mygtukas grupes pasalinimui
+        /// </summary>
         private void btnGrupePasalinti_Click(object sender, EventArgs e)
         {
             PatikrintiArNeraStudentuGrupeje();
             GrupeDataGridView.DataSource = FillGrupeDatagrid();
         }
-
+        /// <summary>
+        /// Delete dalyka is tbl_DalykoPavadinimas
+        /// </summary>
         private void SalintiDalyka()
         {
             if (txtDalykas.Text == "")
@@ -247,13 +247,17 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 
             }
         }
-
+        /// <summary>
+        /// Mygtukas dalyko pasalinimui
+        /// </summary>
         private void btnDalykasPašalinti_Click(object sender, EventArgs e)
         {
             PatikrintiArDalykoMokosi();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
-
+        /// <summary>
+        /// Patikrinti ar dalyko kas nors mokosi
+        /// </summary>
         public void PatikrintiArDalykoMokosi()
         {
             con.Open();
@@ -274,17 +278,48 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
 
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void frmGrupesDalykai_Load(object sender, EventArgs e)
         {
             this.Text = "Admininstratorius";
         }
-
+        /// <summary>
+        /// Pereiti i pazymiu valdymo forma
+        /// </summary>
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
             FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
+        }
+        /// <summary>
+        /// Mygtukas perejimui i studento valdymo forma
+        /// </summary>
+        private void btnStudentas_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
+            frmAdminStudentas.Show();
+        }
+        /// <summary>
+        /// Mygtukas perejimui i destytojo valdymo forma
+        /// </summary>
+        private void btnDestytojas_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
+            frmAdminDestytojas.Show();
+        }
+        /// <summary>
+        /// Mygtukas grizimui i pradzios ekrana
+        /// </summary>
+        private void btnAtsijungti_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogIn frmLogIn = new FrmLogIn();
+            frmLogIn.Show();
         }
     }
 }

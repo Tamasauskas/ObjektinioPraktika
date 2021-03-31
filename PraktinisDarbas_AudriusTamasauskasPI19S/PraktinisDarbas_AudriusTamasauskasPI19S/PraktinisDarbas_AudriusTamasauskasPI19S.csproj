@@ -58,7 +58,7 @@
     <Compile Include="Classes\ClsDalykoPavadinimas.cs" />
     <Compile Include="Classes\ClsGrupe.cs" />
     <Compile Include="Classes\ClsPazymys.cs" />
-    <Compile Include="ClsAsmuo.cs" />
+    <Compile Include="Classes\ClsAsmuo.cs" />
     <Compile Include="Forms\FrmAdminDestytojas.cs">
       <SubType>Form</SubType>
     </Compile>
