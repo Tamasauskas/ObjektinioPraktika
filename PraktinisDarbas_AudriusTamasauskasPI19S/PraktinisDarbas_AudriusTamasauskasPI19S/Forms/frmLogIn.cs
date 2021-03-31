@@ -24,7 +24,8 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             btnLogIn.FlatStyle = FlatStyle.Standard;
 
         }
-
+   
+       #region
         private void txtUserEnter(object sender, EventArgs e)
         {
             if (txtLonInName.Text.Equals("Prisijungimo vardas"))
@@ -60,7 +61,8 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 txtPassword.ForeColor = Color.LightGray;
             }
         }
-
+       #endregion
+    
         private void btnLogIn_Click(object sender, EventArgs e)
         {
            
@@ -127,11 +129,12 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             }
  
         }
+      
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        
         private void btnStudentoIvedimas_Click(object sender, EventArgs e)
         {
             this.Hide();
