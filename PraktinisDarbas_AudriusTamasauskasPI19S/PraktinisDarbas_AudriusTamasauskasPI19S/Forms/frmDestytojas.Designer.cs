@@ -102,6 +102,7 @@
             this.DestytojasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DestytojasDataGridView.Size = new System.Drawing.Size(563, 374);
             this.DestytojasDataGridView.TabIndex = 15;
+            this.DestytojasDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DestytojasDataGridView_CellContentClick);
             // 
             // ComboStudentas
             // 
@@ -154,6 +155,7 @@
             this.btn_PakeistiPazimi.TabIndex = 23;
             this.btn_PakeistiPazimi.Text = "Pakeisti pažymį";
             this.btn_PakeistiPazimi.UseVisualStyleBackColor = true;
+            this.btn_PakeistiPazimi.Click += new System.EventHandler(this.btn_PakeistiPazimi_Click);
             // 
             // ComboDalykas
             // 
