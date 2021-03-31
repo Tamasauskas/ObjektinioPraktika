@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class frmStudentas
+    partial class FrmStudentas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStudentas));
             this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.StudentoIvertinimaiDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.StudentoIvertinimaiDataGridView)).BeginInit();

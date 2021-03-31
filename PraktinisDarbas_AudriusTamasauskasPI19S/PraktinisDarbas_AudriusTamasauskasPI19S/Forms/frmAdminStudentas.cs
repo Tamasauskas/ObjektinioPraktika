@@ -11,16 +11,16 @@ using System.Data.SQLite;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmAdminStudentas : Form
+    public partial class FrmAdminStudentas : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
-        clsStudentas Studentas = new clsStudentas();
+        ClsHelper Helper = new ClsHelper();
+        ClsStudentas Studentas = new ClsStudentas();
 
-        public frmAdminStudentas()
+        public FrmAdminStudentas()
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
+            con.ConnectionString = ClsHelper.ConnectionString;
             FillCombo();
             StudentasDataGridView.DataSource = FillDatagrid();
             StudentasDataGridView.Columns["StudentoId"].Visible = false;
@@ -78,7 +78,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btn_Atsijungti_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogIn frmLogIn = new frmLogIn();
+            FrmLogIn frmLogIn = new FrmLogIn();
             frmLogIn.Show();
         }
 
@@ -168,6 +168,24 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
            
         }
 
+        private void NaikintiStudentoIvertinimus()
+        {
+            Helper.Query = "Delete From tbl_StudentoIvertinimas Where StudentoId='" + Studentas.StudentoId + "'";
+            SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
+            SQLiteDataReader myReader;
+            try
+            {
+                con.Open();
+                myReader = cmd.ExecuteReader();
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Klaida salinant studento įrašus iš įvertinimų." + ex.Message);
+            }
+            con.Close();
+        }
+
         private void btnNaikinti_Click(object sender, EventArgs e)
         {
             if (txtStudentoVardas.Text == "" || txtStudentoPavarde.Text == "" || ComboGrupe.Text == "" || Studentas.StudentoId == "")
@@ -181,15 +199,18 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 SQLiteDataReader myReader;
                 try
                 {
+                    
                     con.Open();
                     myReader = cmd.ExecuteReader();
+                    con.Close();
+                    NaikintiStudentoIvertinimus();
                     MessageBox.Show("Ištrinta sėkmingai");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Klaida" + ex.Message);
+                    MessageBox.Show("Klaida šalinant studenta." + ex.Message);
                 }
-                con.Close();
+               
                 StudentasDataGridView.DataSource = FillDatagrid();
             }
         }
@@ -197,21 +218,21 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnDestytojas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
+            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
 
         private void BtnGrupsDalykai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
 
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPazimiai frmPazimiai = new frmPazimiai();
+            FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
         }
     }

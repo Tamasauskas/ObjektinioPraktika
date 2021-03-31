@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class ClsPazymys
+    class ClsAsmuo
     {
-        public string PazymysId { get; set; }
+        public string Vardas { get; set; }
+        public string Pavarde { get; set; }
     }
 }

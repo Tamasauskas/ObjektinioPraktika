@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class clsDalykoPavadinimas
+    class ClsDalykoPavadinimas
     {
         public string DalykoPavadinimasId { get; set; }
     }

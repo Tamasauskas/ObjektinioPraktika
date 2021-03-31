@@ -11,16 +11,16 @@ using System.Data.SQLite;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmLogIn : Form
+    public partial class FrmLogIn : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
+        ClsHelper Helper = new ClsHelper();
         private int i = 0;
 
-        public frmLogIn()
+        public FrmLogIn()
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
+            con.ConnectionString = ClsHelper.ConnectionString;
             btnLogIn.FlatStyle = FlatStyle.Standard;
 
         }
@@ -75,7 +75,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 Helper.Query = "Select AdminId from tbl_Admin where LogIn='" + txtLonInName.Text + "' and Password = '" + txtPassword.Text + "'";
                 SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
                 this.Hide();
-                frmAdminStudentas frmAdmin = new frmAdminStudentas();
+                FrmAdminStudentas frmAdmin = new FrmAdminStudentas();
                 frmAdmin.Show();
                 con.Close();
                 i = +1;
@@ -88,13 +88,13 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             {
                 Helper.Query = "Select StudentoId From tbl_Studentas where Vardas='" + txtLonInName.Text + "' and Pavarde= '" + txtPassword.Text + "'";
                 SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
-                clsStudentas Studentas = new clsStudentas();
+                ClsStudentas Studentas = new ClsStudentas();
                 Studentas.Vardas = txtLonInName.Text;
                 Studentas.Pavarde = txtPassword.Text;
                 Studentas.StudentoId = cmd.ExecuteScalar().ToString();
                 //MessageBox.Show(Studentas.StudentoId);
                 this.Hide();
-                frmStudentas frmStudentas = new frmStudentas(Studentas.Vardas, Studentas.Pavarde, Studentas.StudentoId);
+                FrmStudentas frmStudentas = new FrmStudentas(Studentas.Vardas, Studentas.Pavarde, Studentas.StudentoId);
                 frmStudentas.Show();
                 con.Close();
                 i = +1;
@@ -107,13 +107,13 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             {
                 Helper.Query = "Select DestytojoId From tbl_Destytojas where Vardas='" + txtLonInName.Text + "' and Pavarde= '" + txtPassword.Text + "'";
                 SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
-                clsDestytojas Destytojas = new clsDestytojas();
+                ClsDestytojas Destytojas = new ClsDestytojas();
                 Destytojas.Vardas = txtLonInName.Text;
                 Destytojas.Pavarde = txtPassword.Text;
                 Destytojas.DestytojoId = cmd.ExecuteScalar().ToString();
                 //MessageBox.Show(Destytojas.DestytojoId);
                 this.Hide();
-                frmDestytojas frmDestytojas = new frmDestytojas(Destytojas.Vardas, Destytojas.Pavarde, Destytojas.DestytojoId);
+                FrmDestytojas frmDestytojas = new FrmDestytojas(Destytojas.Vardas, Destytojas.Pavarde, Destytojas.DestytojoId);
                 frmDestytojas.Show();
                 con.Close();
                 i = +1;
@@ -121,8 +121,8 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             if (i==0)
             {
                 MessageBox.Show("Patikrinkite prisijungimo vardą ir/arba slaptažodį");
-                txtPassword.Text = "Slaptažodis";
-                txtPassword.ForeColor = Color.LightGray;
+             
+                
                 con.Close();
             }
  
@@ -135,36 +135,43 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnStudentoIvedimas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
             frmAdminStudentas.Show();
         }
 
         private void btnDestytojas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
+            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
 
         private void btnAdminPazymiai_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmPazimiai frmPazimiai = new frmPazimiai();
+            FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
         }
 
         private void Studentas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmStudentas frmStudentas = new frmStudentas("TestV", "TestP", "5");
+            FrmStudentas frmStudentas = new FrmStudentas("TestV", "TestP", "5");
             frmStudentas.Show();
+        }
+
+        private void btnDestytojas_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmDestytojas frmDestytojas = new FrmDestytojas("Petras", "Petrauskas", "12");
+            frmDestytojas.Show();
         }
     }
 }

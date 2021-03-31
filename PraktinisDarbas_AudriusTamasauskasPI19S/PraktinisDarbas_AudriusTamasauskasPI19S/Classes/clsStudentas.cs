@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class clsStudentas
+    class ClsStudentas : ClsAsmuo
     {
         public string StudentoId { get; set; }
-        public string Vardas { get; set; }
-        public string Pavarde { get; set; }
         public string GrupeId { get; set; }
     }
 }

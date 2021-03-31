@@ -10,17 +10,17 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmAdminDestytojas : Form
+    public partial class FrmAdminDestytojas : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
-        clsDalykas Dalykas = new clsDalykas();
-        clsDestytojas Destytojas = new clsDestytojas();
+        ClsHelper Helper = new ClsHelper();
+        ClsDalykas Dalykas = new ClsDalykas();
+        ClsDestytojas Destytojas = new ClsDestytojas();
 
-        public frmAdminDestytojas()
+        public FrmAdminDestytojas()
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
+            con.ConnectionString = ClsHelper.ConnectionString;
             FillComboDalykas();
             FillComboGrupe();
             DestytojasDataGridView.DataSource = FillDatagrid();
@@ -32,7 +32,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnStudentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
             frmAdminStudentas.Show();
         }
 
@@ -110,7 +110,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btn_Atsijungti_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogIn frmLogIn = new frmLogIn();
+            FrmLogIn frmLogIn = new FrmLogIn();
             frmLogIn.Show();
         }
 
@@ -342,14 +342,14 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void BtnGrupesDalykai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
 
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPazimiai frmPazimiai = new frmPazimiai();
+            FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class frmGrupesDalykai
+    partial class FrmGrupesDalykai
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGrupesDalykai));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupesDalykai));
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnGrupsDalykai = new System.Windows.Forms.Button();

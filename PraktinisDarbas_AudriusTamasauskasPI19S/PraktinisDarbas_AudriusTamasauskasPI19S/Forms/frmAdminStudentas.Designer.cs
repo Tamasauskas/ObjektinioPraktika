@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class frmAdminStudentas
+    partial class FrmAdminStudentas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminStudentas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminStudentas));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNaikinti = new System.Windows.Forms.Button();
             this.btnAtnaujinti = new System.Windows.Forms.Button();
@@ -44,8 +44,8 @@
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnGrupsDalykai = new System.Windows.Forms.Button();
             this.btnPazimiai = new System.Windows.Forms.Button();
+            this.BtnGrupsDalykai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentasDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -220,22 +220,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
             // 
-            // BtnGrupsDalykai
-            // 
-            this.BtnGrupsDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.BtnGrupsDalykai.FlatAppearance.BorderSize = 2;
-            this.BtnGrupsDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.BtnGrupsDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnGrupsDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGrupsDalykai.Location = new System.Drawing.Point(6, 147);
-            this.BtnGrupsDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnGrupsDalykai.Name = "BtnGrupsDalykai";
-            this.BtnGrupsDalykai.Size = new System.Drawing.Size(139, 54);
-            this.BtnGrupsDalykai.TabIndex = 4;
-            this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
-            this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
-            this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
-            // 
             // btnPazimiai
             // 
             this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
@@ -252,11 +236,27 @@
             this.btnPazimiai.UseVisualStyleBackColor = true;
             this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
             // 
+            // BtnGrupsDalykai
+            // 
+            this.BtnGrupsDalykai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.BtnGrupsDalykai.FlatAppearance.BorderSize = 2;
+            this.BtnGrupsDalykai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtnGrupsDalykai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnGrupsDalykai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGrupsDalykai.Location = new System.Drawing.Point(6, 147);
+            this.BtnGrupsDalykai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnGrupsDalykai.Name = "BtnGrupsDalykai";
+            this.BtnGrupsDalykai.Size = new System.Drawing.Size(139, 54);
+            this.BtnGrupsDalykai.TabIndex = 4;
+            this.BtnGrupsDalykai.Text = "Grupes/Dalykai";
+            this.BtnGrupsDalykai.UseVisualStyleBackColor = true;
+            this.BtnGrupsDalykai.Click += new System.EventHandler(this.BtnGrupsDalykai_Click);
+            // 
             // frmAdminStudentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 528);
+            this.ClientSize = new System.Drawing.Size(812, 542);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_Atsijungti);
             this.Controls.Add(this.groupBox1);

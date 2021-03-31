@@ -10,16 +10,16 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmPazimiai : Form
+    public partial class FrmPazimiai : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
-        clsPazymys Pazymys = new clsPazymys();
+        ClsHelper Helper = new ClsHelper();
+        ClsPazymys Pazymys = new ClsPazymys();
 
-        public frmPazimiai()
+        public FrmPazimiai()
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
+            con.ConnectionString = ClsHelper.ConnectionString;
             PazymiaiDataGridView.DataSource = FillPazymiaiDatagrid();
         }
 
@@ -50,21 +50,21 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void BtnGrupsDalykai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmGrupesDalykai frmGrupesDalykai = new frmGrupesDalykai();
+            FrmGrupesDalykai frmGrupesDalykai = new FrmGrupesDalykai();
             frmGrupesDalykai.Show();
         }
 
         private void btnDestytojas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
+            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
 
         private void btnStudentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
             frmAdminStudentas.Show();
         }
 
@@ -100,7 +100,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         {
             con.Open();
            
-            Helper.Query = "Select Count (PazimysId) FROM tbl_StudentoIvertinimas Where PazimysId = '" + txtPazymys.Text + "'";
+            Helper.Query = "Select Count (PazymysId) FROM tbl_StudentoIvertinimas Where PazymysId = '" + txtPazymys.Text + "'";
             SQLiteDataAdapter sda2 = new SQLiteDataAdapter(Helper.Query, con);
             DataTable dt2 = new DataTable();
             sda2.Fill(dt2);
@@ -187,6 +187,13 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             AtnaujintiPazymi();
             PazymiaiDataGridView.DataSource = FillPazymiaiDatagrid();
 
+        }
+
+        private void btn_Atsijungti_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogIn frmLogIn = new FrmLogIn();
+            frmLogIn.Show();
         }
     }
 }

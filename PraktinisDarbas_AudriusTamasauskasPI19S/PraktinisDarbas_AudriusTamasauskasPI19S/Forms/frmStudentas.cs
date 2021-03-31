@@ -10,21 +10,21 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmStudentas : Form
+    public partial class FrmStudentas : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
-        clsStudentas Studentas = new clsStudentas();
+        ClsHelper Helper = new ClsHelper();
+        ClsStudentas Studentas = new ClsStudentas();
         
 
-        public frmStudentas(string Std_vardas, string Std_Pavarde, string Std_Id)
+        public FrmStudentas(string std_vardas, string std_Pavarde, string std_Id)
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
-            Text = Std_vardas + " " + Std_Pavarde;
-            Studentas.Vardas = Std_vardas;
-            Studentas.Pavarde = Std_Pavarde;
-            Studentas.StudentoId = Std_Id;
+            con.ConnectionString = ClsHelper.ConnectionString;
+            Text = std_vardas + " " + std_Pavarde;
+            Studentas.Vardas = std_vardas;
+            Studentas.Pavarde = std_Pavarde;
+            Studentas.StudentoId = std_Id;
             StudentoIvertinimaiDataGridView.DataSource = FillDatagrid();
         }
 
@@ -34,16 +34,16 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             Helper.Query = " Select " +
                            " tbl_Dalykas.GrupesId As Grupe, " +
                            " tbl_Destytojas.Vardas || ' ' || tbl_Destytojas.Pavarde As Destytojas," + 
-                           " tbl_Dalykas.DalykoPavadinimasId, "+
+                           " tbl_Dalykas.DalykoPavadinimasId As Dalykas, "+
                            " tbl_Studentas.Vardas || ' ' || tbl_Studentas.Pavarde As Studentas, " +
-                           " tbl_StudentoIvertinimas.PazymysId "+
+                           " tbl_StudentoIvertinimas.PazymysId As Ivertinimas"+
                            " From "+
                            " (((tbl_StudentoIvertinimas "+
                            " Inner Join tbl_Pazymys On tbl_StudentoIvertinimas.PazymysId = tbl_Pazymys.PazymysId) "+
-                           " Inner Join tbl_Studentas On  tbl_StudentoIvertinimas.StudentasId = tbl_Studentas.StudentoId) "+
+                           " Inner Join tbl_Studentas On  tbl_StudentoIvertinimas.StudentoId = tbl_Studentas.StudentoId) "+
                            " Inner Join tbl_Dalykas On tbl_StudentoIvertinimas.DalykasId = tbl_Dalykas.DalykoId), "+
                            " tbl_Destytojas "+
-                           " Where tbl_Destytojas.DestytojoId = tbl_Dalykas.DestytojoId And tbl_Studentas.StudentoId = '5'; ";
+                           " Where tbl_Destytojas.DestytojoId = tbl_Dalykas.DestytojoId And tbl_Studentas.StudentoId = '"+Studentas.StudentoId+"'; ";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
             try
             {
@@ -51,9 +51,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 dt.Load(reader);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Klaida:" + ex.Message);
+                MessageBox.Show("Klaida studento pažymių lentelės atvaizdavime.");
             }
             con.Close();
             return dt;
@@ -64,7 +64,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btn_Atsijungti_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogIn frmLogIn = new frmLogIn();
+            FrmLogIn frmLogIn = new FrmLogIn();
             frmLogIn.Show();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class frmPazimiai
+    partial class FrmPazimiai
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPazimiai));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPazimiai));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPazimiai = new System.Windows.Forms.Button();
             this.BtnGrupsDalykai = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.btnPazymysAtnaujinti = new System.Windows.Forms.Button();
             this.btnPazymysPridėti = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Atsijungti = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PazymiaiDataGridView)).BeginInit();
@@ -54,7 +55,7 @@
             this.groupBox3.Controls.Add(this.btnDestytojas);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(161, 461);
+            this.groupBox3.Size = new System.Drawing.Size(161, 279);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
@@ -132,7 +133,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(190, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 461);
+            this.groupBox1.Size = new System.Drawing.Size(349, 279);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pazymiai";
@@ -166,7 +167,7 @@
             this.PazymiaiDataGridView.ReadOnly = true;
             this.PazymiaiDataGridView.RowTemplate.Height = 24;
             this.PazymiaiDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PazymiaiDataGridView.Size = new System.Drawing.Size(206, 443);
+            this.PazymiaiDataGridView.Size = new System.Drawing.Size(206, 248);
             this.PazymiaiDataGridView.TabIndex = 13;
             this.PazymiaiDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PazymiaiDataGridView_CellContentClick);
             // 
@@ -199,15 +200,26 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Pazymys";
             // 
-            // frmPazimiai
+            // btn_Atsijungti
+            // 
+            this.btn_Atsijungti.Location = new System.Drawing.Point(414, 297);
+            this.btn_Atsijungti.Name = "btn_Atsijungti";
+            this.btn_Atsijungti.Size = new System.Drawing.Size(125, 54);
+            this.btn_Atsijungti.TabIndex = 11;
+            this.btn_Atsijungti.Text = "Atsijungti";
+            this.btn_Atsijungti.UseVisualStyleBackColor = true;
+            this.btn_Atsijungti.Click += new System.EventHandler(this.btn_Atsijungti_Click);
+            // 
+            // FrmPazimiai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 481);
+            this.ClientSize = new System.Drawing.Size(558, 362);
+            this.Controls.Add(this.btn_Atsijungti);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmPazimiai";
+            this.Name = "FrmPazimiai";
             this.Text = "frmPazimiai";
             this.Load += new System.EventHandler(this.frmPazimiai_Load);
             this.groupBox3.ResumeLayout(false);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPazymys;
         private System.Windows.Forms.Button btnPazymysNaikinti;
+        private System.Windows.Forms.Button btn_Atsijungti;
     }
 }

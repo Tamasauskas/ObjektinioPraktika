@@ -11,18 +11,18 @@ using System.Data.SQLite;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    public partial class frmGrupesDalykai : Form
+    public partial class FrmGrupesDalykai : Form
     {
         SQLiteConnection con = new SQLiteConnection();
-        clsHelper Helper = new clsHelper();
-        clsDalykoPavadinimas DalykoPavadinimas = new clsDalykoPavadinimas();
-        clsGrupe Grupe = new clsGrupe();
+        ClsHelper Helper = new ClsHelper();
+        ClsDalykoPavadinimas DalykoPavadinimas = new ClsDalykoPavadinimas();
+        ClsGrupe Grupe = new ClsGrupe();
         
 
-        public frmGrupesDalykai()
+        public FrmGrupesDalykai()
         {
             InitializeComponent();
-            con.ConnectionString = clsHelper.ConnectionString;
+            con.ConnectionString = ClsHelper.ConnectionString;
             GrupeDataGridView.DataSource = FillGrupeDatagrid();
             DalykasDataGridView.DataSource = FillDalykasDatagrid();
         }
@@ -69,21 +69,21 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnStudentas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminStudentas frmAdminStudentas = new frmAdminStudentas();
+            FrmAdminStudentas frmAdminStudentas = new FrmAdminStudentas();
             frmAdminStudentas.Show();
         }
 
         private void btnDestytojas_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmAdminDestytojas frmAdminDestytojas = new frmAdminDestytojas();
+            FrmAdminDestytojas frmAdminDestytojas = new FrmAdminDestytojas();
             frmAdminDestytojas.Show();
         }
 
         private void btn_Atsijungti_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogIn frmLogIn = new frmLogIn();
+            FrmLogIn frmLogIn = new FrmLogIn();
             frmLogIn.Show();
         }
 
@@ -114,6 +114,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             {
                 con.Open();
                 myReader = cmd.ExecuteReader();
+                MessageBox.Show("Išsaugota sėkmingai.");
             }
             catch (Exception)
             {
@@ -132,6 +133,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
             {
                 con.Open();
                 myReader = cmd.ExecuteReader();
+                MessageBox.Show("Išsaugota sėkmingai.");
             }
             catch (Exception)
             {
@@ -281,7 +283,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         private void btnPazimiai_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPazimiai frmPazimiai = new frmPazimiai();
+            FrmPazimiai frmPazimiai = new FrmPazimiai();
             frmPazimiai.Show();
         }
     }

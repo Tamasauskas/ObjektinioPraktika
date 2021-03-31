@@ -54,54 +54,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\clsDalykas.cs" />
-    <Compile Include="Classes\clsDalykoPavadinimas.cs" />
-    <Compile Include="Classes\clsGrupe.cs" />
-    <Compile Include="Classes\clsPazymys.cs" />
-    <Compile Include="Forms\frmAdminDestytojas.cs">
+    <Compile Include="Classes\ClsDalykas.cs" />
+    <Compile Include="Classes\ClsDalykoPavadinimas.cs" />
+    <Compile Include="Classes\ClsGrupe.cs" />
+    <Compile Include="Classes\ClsPazymys.cs" />
+    <Compile Include="ClsAsmuo.cs" />
+    <Compile Include="Forms\FrmAdminDestytojas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAdminDestytojas.Designer.cs">
-      <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
+    <Compile Include="Forms\FrmAdminDestytojas.Designer.cs">
+      <DependentUpon>FrmAdminDestytojas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAdminStudentas.cs">
+    <Compile Include="Forms\FrmAdminStudentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAdminStudentas.Designer.cs">
-      <DependentUpon>frmAdminStudentas.cs</DependentUpon>
+    <Compile Include="Forms\FrmAdminStudentas.Designer.cs">
+      <DependentUpon>FrmAdminStudentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\clsDestytojas.cs" />
-    <Compile Include="Classes\clsStudentas.cs" />
-    <Compile Include="Forms\frmDestytojas.cs">
+    <Compile Include="Classes\ClsDestytojas.cs" />
+    <Compile Include="Classes\ClsStudentas.cs" />
+    <Compile Include="Forms\FrmDestytojas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDestytojas.Designer.cs">
-      <DependentUpon>frmDestytojas.cs</DependentUpon>
+    <Compile Include="Forms\FrmDestytojas.Designer.cs">
+      <DependentUpon>FrmDestytojas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmStudentas.cs">
+    <Compile Include="Forms\FrmStudentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmStudentas.Designer.cs">
-      <DependentUpon>frmStudentas.cs</DependentUpon>
+    <Compile Include="Forms\FrmStudentas.Designer.cs">
+      <DependentUpon>FrmStudentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLogIn.cs">
+    <Compile Include="Forms\FrmLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLogIn.Designer.cs">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
+    <Compile Include="Forms\FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\clsHelper.cs" />
-    <Compile Include="Forms\GrupesDalykai.cs">
+    <Compile Include="Classes\ClsHelper.cs" />
+    <Compile Include="Forms\FrmGrupesDalykai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GrupesDalykai.Designer.cs">
-      <DependentUpon>GrupesDalykai.cs</DependentUpon>
+    <Compile Include="Forms\FrmGrupesDalykai.Designer.cs">
+      <DependentUpon>FrmGrupesDalykai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPazymiai.cs">
+    <Compile Include="Forms\FrmPazymiai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPazymiai.Designer.cs">
-      <DependentUpon>frmPazymiai.cs</DependentUpon>
+    <Compile Include="Forms\FrmPazymiai.Designer.cs">
+      <DependentUpon>FrmPazymiai.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,26 +111,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Objektinis_ProgramavimasDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\frmAdminDestytojas.resx">
-      <DependentUpon>frmAdminDestytojas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAdminDestytojas.resx">
+      <DependentUpon>FrmAdminDestytojas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAdminStudentas.resx">
-      <DependentUpon>frmAdminStudentas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAdminStudentas.resx">
+      <DependentUpon>FrmAdminStudentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDestytojas.resx">
-      <DependentUpon>frmDestytojas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmDestytojas.resx">
+      <DependentUpon>FrmDestytojas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPazymiai.resx">
-      <DependentUpon>frmPazymiai.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmPazymiai.resx">
+      <DependentUpon>FrmPazymiai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmStudentas.resx">
-      <DependentUpon>frmStudentas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmStudentas.resx">
+      <DependentUpon>FrmStudentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLogIn.resx">
-      <DependentUpon>frmLogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmLogIn.resx">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GrupesDalykai.resx">
-      <DependentUpon>GrupesDalykai.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmGrupesDalykai.resx">
+      <DependentUpon>FrmGrupesDalykai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

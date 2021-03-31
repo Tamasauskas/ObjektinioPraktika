@@ -17,7 +17,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogIn());
+            Application.Run(new FrmLogIn());
         }
     }
 }

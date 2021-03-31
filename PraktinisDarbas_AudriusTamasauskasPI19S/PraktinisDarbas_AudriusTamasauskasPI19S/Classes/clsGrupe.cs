@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    class clsGrupe
+    class ClsGrupe
     {
         public string GrupesId { get; set; }
     }

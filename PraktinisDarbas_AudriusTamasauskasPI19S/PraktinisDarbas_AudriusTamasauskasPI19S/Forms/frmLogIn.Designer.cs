@@ -1,6 +1,6 @@
 ﻿namespace PraktinisDarbas_AudriusTamasauskasPI19S
 {
-    partial class frmLogIn
+    partial class FrmLogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogIn));
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.txtLonInName = new System.Windows.Forms.TextBox();
@@ -36,10 +36,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStudentoIvedimas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnStudentas = new System.Windows.Forms.Button();
             this.btnAdminPazymiai = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDestytojoIvedimas = new System.Windows.Forms.Button();
             this.btnDestytojas = new System.Windows.Forms.Button();
-            this.Studentas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +100,7 @@
             this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPassword.Size = new System.Drawing.Size(279, 36);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "Slaptažodis";
+            this.txtPassword.Text = "Password";
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassEnter);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassLeave);
@@ -114,7 +115,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(602, 320);
+            this.pictureBox1.Size = new System.Drawing.Size(606, 320);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -131,10 +132,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Studentas);
+            this.groupBox1.Controls.Add(this.btnDestytojas);
+            this.groupBox1.Controls.Add(this.btnStudentas);
             this.groupBox1.Controls.Add(this.btnAdminPazymiai);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnDestytojas);
+            this.groupBox1.Controls.Add(this.btnDestytojoIvedimas);
             this.groupBox1.Controls.Add(this.btnStudentoIvedimas);
             this.groupBox1.Location = new System.Drawing.Point(390, 28);
             this.groupBox1.Name = "groupBox1";
@@ -142,6 +144,16 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Greita prieiga";
+            // 
+            // btnStudentas
+            // 
+            this.btnStudentas.Location = new System.Drawing.Point(6, 198);
+            this.btnStudentas.Name = "btnStudentas";
+            this.btnStudentas.Size = new System.Drawing.Size(161, 36);
+            this.btnStudentas.TabIndex = 9;
+            this.btnStudentas.Text = "Studentas";
+            this.btnStudentas.UseVisualStyleBackColor = true;
+            this.btnStudentas.Click += new System.EventHandler(this.Studentas_Click);
             // 
             // btnAdminPazymiai
             // 
@@ -163,31 +175,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDestytojoIvedimas
+            // 
+            this.btnDestytojoIvedimas.Location = new System.Drawing.Point(6, 72);
+            this.btnDestytojoIvedimas.Name = "btnDestytojoIvedimas";
+            this.btnDestytojoIvedimas.Size = new System.Drawing.Size(161, 36);
+            this.btnDestytojoIvedimas.TabIndex = 6;
+            this.btnDestytojoIvedimas.Text = "AdminDestytojai";
+            this.btnDestytojoIvedimas.UseVisualStyleBackColor = true;
+            this.btnDestytojoIvedimas.Click += new System.EventHandler(this.btnDestytojas_Click);
+            // 
             // btnDestytojas
             // 
-            this.btnDestytojas.Location = new System.Drawing.Point(6, 72);
+            this.btnDestytojas.Location = new System.Drawing.Point(6, 238);
             this.btnDestytojas.Name = "btnDestytojas";
             this.btnDestytojas.Size = new System.Drawing.Size(161, 36);
-            this.btnDestytojas.TabIndex = 6;
-            this.btnDestytojas.Text = "AdminDestytojai";
+            this.btnDestytojas.TabIndex = 10;
+            this.btnDestytojas.Text = "Destytojas";
             this.btnDestytojas.UseVisualStyleBackColor = true;
-            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click);
-            // 
-            // Studentas
-            // 
-            this.Studentas.Location = new System.Drawing.Point(6, 198);
-            this.Studentas.Name = "Studentas";
-            this.Studentas.Size = new System.Drawing.Size(161, 36);
-            this.Studentas.TabIndex = 9;
-            this.Studentas.Text = "Studentas";
-            this.Studentas.UseVisualStyleBackColor = true;
-            this.Studentas.Click += new System.EventHandler(this.Studentas_Click);
+            this.btnDestytojas.Click += new System.EventHandler(this.btnDestytojas_Click_1);
             // 
             // frmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 320);
+            this.ClientSize = new System.Drawing.Size(606, 320);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLonInName);
@@ -217,10 +229,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnStudentoIvedimas;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnDestytojas;
+        private System.Windows.Forms.Button btnDestytojoIvedimas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAdminPazymiai;
-        private System.Windows.Forms.Button Studentas;
+        private System.Windows.Forms.Button btnStudentas;
+        private System.Windows.Forms.Button btnDestytojas;
     }
 }
 
