@@ -68,6 +68,7 @@
             this.Controls.Add(this.btn_Atsijungti);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmStudentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStudentas";
             ((System.ComponentModel.ISupportInitialize)(this.StudentoIvertinimaiDataGridView)).EndInit();
             this.ResumeLayout(false);

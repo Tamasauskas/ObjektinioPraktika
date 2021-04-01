@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupesDalykai));
             this.btnDestytojas = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPazimiai = new System.Windows.Forms.Button();
             this.BtnGrupsDalykai = new System.Windows.Forms.Button();
             this.btnStudentas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,7 +47,6 @@
             this.BtwDalykasPrideti = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Atsijungti = new System.Windows.Forms.Button();
-            this.btnPazimiai = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrupeDataGridView)).BeginInit();
@@ -82,6 +82,22 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
+            // 
+            // btnPazimiai
+            // 
+            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnPazimiai.FlatAppearance.BorderSize = 2;
+            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
+            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPazimiai.Name = "btnPazimiai";
+            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
+            this.btnPazimiai.TabIndex = 11;
+            this.btnPazimiai.Text = "Pažymiai";
+            this.btnPazimiai.UseVisualStyleBackColor = true;
+            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
             // 
             // BtnGrupsDalykai
             // 
@@ -256,23 +272,7 @@
             this.btn_Atsijungti.UseVisualStyleBackColor = true;
             this.btn_Atsijungti.Click += new System.EventHandler(this.btnAtsijungti_Click);
             // 
-            // btnPazimiai
-            // 
-            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnPazimiai.FlatAppearance.BorderSize = 2;
-            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
-            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPazimiai.Name = "btnPazimiai";
-            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
-            this.btnPazimiai.TabIndex = 11;
-            this.btnPazimiai.Text = "Pažymiai";
-            this.btnPazimiai.UseVisualStyleBackColor = true;
-            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
-            // 
-            // frmGrupesDalykai
+            // FrmGrupesDalykai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,7 +282,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmGrupesDalykai";
+            this.Name = "FrmGrupesDalykai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GrupesDalykai";
             this.Load += new System.EventHandler(this.frmGrupesDalykai_Load);
             this.groupBox3.ResumeLayout(false);

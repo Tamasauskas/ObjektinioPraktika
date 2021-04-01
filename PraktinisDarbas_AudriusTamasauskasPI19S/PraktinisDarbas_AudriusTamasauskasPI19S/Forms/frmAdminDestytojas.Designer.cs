@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDestytojoVardas = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPazimiai = new System.Windows.Forms.Button();
             this.BtnGrupesDalykai = new System.Windows.Forms.Button();
             this.btnStudentas = new System.Windows.Forms.Button();
             this.btnDestytojas = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ComboGrupe = new System.Windows.Forms.ComboBox();
-            this.btnPazimiai = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DestytojasDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -125,6 +125,22 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Navigacija";
+            // 
+            // btnPazimiai
+            // 
+            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnPazimiai.FlatAppearance.BorderSize = 2;
+            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
+            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPazimiai.Name = "btnPazimiai";
+            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
+            this.btnPazimiai.TabIndex = 6;
+            this.btnPazimiai.Text = "Pažymiai";
+            this.btnPazimiai.UseVisualStyleBackColor = true;
+            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
             // 
             // BtnGrupesDalykai
             // 
@@ -256,23 +272,7 @@
             this.ComboGrupe.Size = new System.Drawing.Size(194, 24);
             this.ComboGrupe.TabIndex = 17;
             // 
-            // btnPazimiai
-            // 
-            this.btnPazimiai.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnPazimiai.FlatAppearance.BorderSize = 2;
-            this.btnPazimiai.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnPazimiai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPazimiai.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPazimiai.Location = new System.Drawing.Point(6, 205);
-            this.btnPazimiai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPazimiai.Name = "btnPazimiai";
-            this.btnPazimiai.Size = new System.Drawing.Size(139, 54);
-            this.btnPazimiai.TabIndex = 6;
-            this.btnPazimiai.Text = "Pažymiai";
-            this.btnPazimiai.UseVisualStyleBackColor = true;
-            this.btnPazimiai.Click += new System.EventHandler(this.btnPazimiai_Click);
-            // 
-            // frmAdminDestytojas
+            // FrmAdminDestytojas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -281,7 +281,8 @@
             this.Controls.Add(this.btn_Atsijungti);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmAdminDestytojas";
+            this.Name = "FrmAdminDestytojas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminDestytojas";
             this.Load += new System.EventHandler(this.frmAdminDestytojas_Load);
             this.groupBox3.ResumeLayout(false);

@@ -194,6 +194,7 @@
             this.Controls.Add(this.btn_Atsijungti);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDestytojas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDestytojas";
             ((System.ComponentModel.ISupportInitialize)(this.DestytojasDataGridView)).EndInit();
             this.ResumeLayout(false);

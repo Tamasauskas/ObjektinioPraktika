@@ -220,6 +220,7 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPazimiai";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPazimiai";
             this.Load += new System.EventHandler(this.frmPazimiai_Load);
             this.groupBox3.ResumeLayout(false);
