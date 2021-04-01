@@ -136,7 +136,7 @@
             this.groupBox1.Size = new System.Drawing.Size(349, 279);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pazymiai";
+            this.groupBox1.Text = "Pažymiai";
             // 
             // btnPazymysNaikinti
             // 
@@ -198,7 +198,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Pazymys";
+            this.label1.Text = "Pažymys";
             // 
             // btn_Atsijungti
             // 

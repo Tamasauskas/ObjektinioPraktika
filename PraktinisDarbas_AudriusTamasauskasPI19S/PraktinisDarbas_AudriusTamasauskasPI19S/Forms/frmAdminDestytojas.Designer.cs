@@ -191,7 +191,7 @@
             // 
             // btn_Atsijungti
             // 
-            this.btn_Atsijungti.Location = new System.Drawing.Point(816, 473);
+            this.btn_Atsijungti.Location = new System.Drawing.Point(971, 473);
             this.btn_Atsijungti.Name = "btn_Atsijungti";
             this.btn_Atsijungti.Size = new System.Drawing.Size(125, 54);
             this.btn_Atsijungti.TabIndex = 7;
