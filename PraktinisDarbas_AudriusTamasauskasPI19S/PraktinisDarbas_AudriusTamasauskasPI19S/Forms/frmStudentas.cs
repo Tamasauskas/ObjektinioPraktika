@@ -44,7 +44,7 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                            " (((tbl_StudentoIvertinimas "+
                            " Inner Join tbl_Pazymys On tbl_StudentoIvertinimas.PazymysId = tbl_Pazymys.PazymysId) "+
                            " Inner Join tbl_Studentas On  tbl_StudentoIvertinimas.StudentoId = tbl_Studentas.StudentoId) "+
-                           " Inner Join tbl_Dalykas On tbl_StudentoIvertinimas.DalykasId = tbl_Dalykas.DalykoId), "+
+                           " Inner Join tbl_Dalykas On tbl_StudentoIvertinimas.DalykoId = tbl_Dalykas.DalykoId), "+
                            " tbl_Destytojas "+
                            " Where tbl_Destytojas.DestytojoId = tbl_Dalykas.DestytojoId And tbl_Studentas.StudentoId = '"+Studentas.StudentoId+"'; ";
             SQLiteCommand cmd = new SQLiteCommand(Helper.Query, con);
@@ -54,9 +54,9 @@ namespace PraktinisDarbas_AudriusTamasauskasPI19S
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 dt.Load(reader);
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
-                MessageBox.Show("Klaida studento pažymių lentelės atvaizdavime.");
+                MessageBox.Show("Klaida studento pažymių lentelės atvaizdavime. " + Ex.Message);
             }
             con.Close();
             return dt;
